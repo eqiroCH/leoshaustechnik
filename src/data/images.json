@@ -1,0 +1,121 @@
+{
+  "buero-deckensegel": {
+    "width": 1500,
+    "height": 2000,
+    "widths": [
+      480,
+      800,
+      1200,
+      1500
+    ],
+    "blur": "data:image/webp;base64,UklGRrYAAABXRUJQVlA4IKoAAACwBQCdASoUABsAPu1ur1IppiQiqAgBMB2JYwC98OacAAwNgMdpa3UuCpAH5hiGnyHSRIUXfQAA/tzpWXqSaC7Eh6JLh6RO6GARr/FZrSiIeoXPgoOp57taI5/SP2qUxBZTZEg4q2wAzED552AuqhZB1a1sxdQ7dyKDRMbV+mRuVMKjeyiujYouTeO3hTOscWlNWMKr3usa87qU8yoVKzG14G+TFKxSjQAAAA=="
+  },
+  "buero-montage": {
+    "width": 1500,
+    "height": 2000,
+    "widths": [
+      480,
+      800,
+      1200,
+      1500
+    ],
+    "blur": "data:image/webp;base64,UklGRrIAAABXRUJQVlA4IKYAAADQBQCdASoUABsAPu1ur1IppiQiqAgBMB2JYwDO8AgAj35PA9iF5DJVeuchSAOSPm8xGfrhmCgAAP7Bh1QWCEMw8crvE8DZ49z32IiKAVguAjClmO/+eRJC/iQoWDawZ55Pw9dAczHD/o+JKnpx6tNwap3BSSrR/AaL7CFDuT3SVLdeIknw1pb09wUJvkJF6MsUDeCD5cAhYV0HO34ahbq+cCYjX6gA"
+  },
+  "buero-nachher": {
+    "width": 1500,
+    "height": 2000,
+    "widths": [
+      480,
+      800,
+      1200,
+      1500
+    ],
+    "blur": "data:image/webp;base64,UklGRpYAAABXRUJQVlA4IIoAAACwBACdASoUABsAPu1qqFAppiOjKA1RMB2JZwDDcBEZhPgczAodysjP9+6I7VAAAP7OAJCSO0ennljHZZ3LE1A9mwZS5QnGmgSxre5ukwHcSrE6rpJegJ6TIkFMp4UA071cbHrhLriJx4Fqdv8AEBNCEzaJ1YkftgJXKo2540yw85WvoALCOmCgAAA="
+  },
+  "buero-vorher": {
+    "width": 1500,
+    "height": 2000,
+    "widths": [
+      480,
+      800,
+      1200,
+      1500
+    ],
+    "blur": "data:image/webp;base64,UklGRoQAAABXRUJQVlA4IHgAAACQBACdASoUABsAPu1qq1EppaOnKAqpMB2JZwAALnP9oPHAnY2NwDAoFO00oGAA/h/f18J74WP7J2AyowWyim5O1hlbweFxmSfHt8zSxr1UNM3UEtAnE+dYckTry4659zm0Yb3vDYXKG8Hgmsl2KlKNarPYcb+EAAA="
+  },
+  "deckensegel-anschluss": {
+    "width": 1080,
+    "height": 1920,
+    "widths": [
+      480,
+      800,
+      1080
+    ],
+    "blur": "data:image/webp;base64,UklGRrQAAABXRUJQVlA4IKgAAADQBQCdASoUACQAPu1kqk6ppaQiKqwBMB2JZQDR6wABNRtaeZjSnt0XwA5847d/5dT6hfpunu5AAP6r4C4mkv3H7bT0iVN1nieevAXQV9XrICKDgthtQ8076Y6emH1YSb7Knz38vKoOdOSy7BuXWNkQIVQrvDDLBz5BMw0mePc7pcE+P7jw488OymSvWl1xcoiILknjJ5gtCfJhwHv7LL4NMWb/JlmgAAA="
+  },
+  "deckensegel-grau-geruest": {
+    "width": 1080,
+    "height": 1920,
+    "widths": [
+      480,
+      800,
+      1080
+    ],
+    "blur": "data:image/webp;base64,UklGRrQAAABXRUJQVlA4IKgAAAAwBgCdASoUACQAPu1urlIppiQipWsxMB2JZwDTJC5U+Iob0nSsrB8i/x96t9/UvfHaRyPxTVLCh/eAAP6lNT1D/kLFnEmpHaJOdAdgAJ5laj30BLYwckL3CCt8X7Y/UfGRX1QT7FJQACz0ktV1ZrIlPqbIhH60Hwf7IokHMtNeuNSVtCl4NCteKqjWZgxaKBWw+3G6yiQmW/MEIC4mYrxsXHb0F6eAAAA="
+  },
+  "deckensegel-grau": {
+    "width": 1920,
+    "height": 1080,
+    "widths": [
+      480,
+      800,
+      1200,
+      1800
+    ],
+    "blur": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAADQAwCdASoUAAsAPu1iqU2ppaQiMAgBMB2JZwAAP/+bnKG/NKp44AAA/nhws3myPIPSfLN+kNaMD7oGBVIK0GG4Lqv/AhWcTd0cVWrzZ/IpWSSUAAA="
+  },
+  "feinverteilung-flexanschluss": {
+    "width": 1530,
+    "height": 2040,
+    "widths": [
+      480,
+      800,
+      1200,
+      1530
+    ],
+    "blur": "data:image/webp;base64,UklGRqgAAABXRUJQVlA4IJwAAADwBACdASoUABsAPuFcqE2opSQiMAwBEBwJYwDOOBrh/eMAoQSGObeo3G7Jbw9ryUAA/UmJs7SquMOQtc6XW+q2KchQDo2zpF1R6BL1rMzEhbZQa6yath1mBDxPilYOcD4t1ZYVN4bo2NCouxEqit3ksqQe+w5923HhEvd56YIdKh2ee5GnjY+1BmH70gQOoMlxTw/Q65r1lDzCAAA="
+  },
+  "feinverteilung-steigzone": {
+    "width": 1500,
+    "height": 2000,
+    "widths": [
+      480,
+      800,
+      1200,
+      1500
+    ],
+    "blur": "data:image/webp;base64,UklGRqIAAABXRUJQVlA4IJYAAADwBACdASoUABsAPu1wsFKppiSiqAgBMB2JQBajcBAkJXRtFgF3SjvI+25Hf0p1YgAA/lWNSZOp1hPsJbc/vYBKmpa44lsS/AStuveQpv8N1X+VV1B9VNcgLj6QtLt+1NPHPyKjlVsrJs1oeWFqgp3HSY28hzFljn5vMAIxzFoAMQ1Q4ZLMQi0OmipDCralJXs93qgoAAA="
+  },
+  "werkhalle-deckensegel": {
+    "width": 2000,
+    "height": 1500,
+    "widths": [
+      480,
+      800,
+      1200,
+      1800
+    ],
+    "blur": "data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAABQAwCdASoUAA8APu1iqU2ppaQiMAgBMB2JZwAAKXu64F5WOAD84bgr0gPbyFb07Em2+SormX7FBRzqrk2SlwhDup1c5EeMXc6ne2LgsAM60nsR/tHlr1MFXuBO9z6Alu3+7nNvuzQRutDQAAA="
+  },
+  "werkhalle-untersicht": {
+    "width": 1500,
+    "height": 2000,
+    "widths": [
+      480,
+      800,
+      1200,
+      1500
+    ],
+    "blur": "data:image/webp;base64,UklGRsYAAABXRUJQVlA4ILoAAABQBQCdASoUABsAPu1qr1CppaQiqAqpMB2JZwDMWy54mQQvDT0hVvUnR88MLEbVw3k24AAA+6EzmaApS3TGrnfZGBMH+L+eFh59Z5ug5OTdySrFHbZPLYVL8nBtm2bC6MrtAUYNqsWSCXOCr7LhzKQBROHFZpsqR7q6JjckqpJVrWqPYvyfoEkKtk3iXI9jZ3ffqFBRsRACnSJyfb1gBcHYPEt3MGPPYI6RYbIWGgvI6lY2muq1rKQAAAA="
+  }
+}

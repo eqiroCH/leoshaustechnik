@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://leos-haustechnik.ch/sitemap.xml
