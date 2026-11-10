@@ -28,7 +28,5 @@
   [headers.values]
     Cache-Control = "public, max-age=2592000"
 
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+# Kein SPA-Catch-all mehr: /, /impressum und /datenschutz werden beim Build vorgerendert,
+# unbekannte URLs liefern dist/404.html mit echtem Status 404.

@@ -1,13 +1,9 @@
-import { useEffect, type ReactNode } from 'react'
+import type { ReactNode } from 'react'
 import { company } from '../data/site'
+import { useSeo } from '../seo'
 
-function LegalLayout({ title, children }: { title: string; children: ReactNode }) {
-  useEffect(() => {
-    document.title = `${title} – ${company.name}`
-    return () => {
-      document.title = "Leo's Haustechnik GmbH – Heiz- & Kühldeckensegel, Feinverteilung | Buchrain LU"
-    }
-  }, [title])
+function LegalLayout({ title, path, children }: { title: string; path: string; children: ReactNode }) {
+  useSeo(path)
 
   return (
     <>
@@ -58,7 +54,7 @@ const Address = () => (
 
 export function Impressum() {
   return (
-    <LegalLayout title="Impressum">
+    <LegalLayout title="Impressum" path="/impressum">
       <div>
         <h2>Kontaktadresse</h2>
         <Address />
@@ -125,12 +121,11 @@ export function Impressum() {
 
 export function Datenschutz() {
   return (
-    <LegalLayout title="Datenschutz">
+    <LegalLayout title="Datenschutz" path="/datenschutz">
       <div>
         <p>
           Mit dieser Datenschutzerklärung informieren wir darüber, welche Personendaten wir im Zusammenhang mit dieser
-          Website bearbeiten. Massgebend ist das Schweizer Bundesgesetz über den Datenschutz (DSG). Soweit im Einzelfall
-          anwendbar, beachten wir auch die Datenschutz-Grundverordnung der EU (DSGVO).
+          Website bearbeiten. Massgebend ist das Schweizer Bundesgesetz über den Datenschutz (DSG).
         </p>
       </div>
       <div>
@@ -157,7 +152,12 @@ export function Datenschutz() {
           Wenn Sie uns über das Kontaktformular oder per E-Mail kontaktieren, bearbeiten wir die von Ihnen angegebenen
           Daten (z. B. Name, Firma, E-Mail-Adresse, Telefonnummer, Projektangaben und hochgeladene Dateien)
           ausschliesslich zur Bearbeitung Ihrer Anfrage und für allfällige Anschlussfragen. Formulareingaben werden über
-          den Dienst Netlify Forms übermittelt und gespeichert.
+          den Dienst Netlify Forms übermittelt und gespeichert und uns zusätzlich per E-Mail zugestellt. Unsere
+          E-Mail-Postfächer werden von der Hostpoint AG (Rapperswil-Jona, Schweiz) betrieben.
+        </p>
+        <p>
+          Anfragen im Formular-Dashboard löschen wir, sobald sie erledigt sind. Korrespondenz, die zu einem Auftrag
+          führt, bewahren wir im Rahmen der gesetzlichen Aufbewahrungspflichten auf.
         </p>
         <p>
           Wir geben diese Daten nicht ohne Ihre Einwilligung an Dritte weiter und löschen sie, sobald sie für den Zweck
@@ -168,7 +168,7 @@ export function Datenschutz() {
         <h2>4. Cookies, Tracking und Drittinhalte</h2>
         <p>
           Diese Website verwendet keine Cookies zu Analyse- oder Werbezwecken und setzt keine Tracking-Tools ein.
-          Schriften, Bilder und Videos werden direkt von unserem Server ausgeliefert. Es werden keine Inhalte von
+          Schriften, Bilder und Videos werden über unseren Hosting-Anbieter Netlify ausgeliefert. Es werden keine Inhalte von
           Drittanbietern wie Google Fonts, YouTube oder Google Maps eingebunden.
         </p>
       </div>

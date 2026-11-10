@@ -8,8 +8,10 @@ import Process from '../components/sections/Process'
 import About from '../components/sections/About'
 import Contact from '../components/sections/Contact'
 import MobileCTA from '../components/MobileCTA'
+import { useSeo } from '../seo'
 
 export default function Home() {
+  useSeo('/')
   return (
     <>
       <Hero />

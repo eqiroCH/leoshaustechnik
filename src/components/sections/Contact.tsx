@@ -5,12 +5,12 @@ import Reveal from '../Reveal'
 import { company, phoneHref } from '../../data/site'
 
 const projectTypes = ['Deckensegel', 'Feinverteilung', 'Komplettpaket', 'Anderes']
-const MAX_FILE_MB = 8
+const MAX_FILE_MB = 7 // Netlify Forms: max. 8 MB pro Anfrage inkl. aller Felder
 
 type Status = 'idle' | 'sending' | 'success' | 'error'
 
 const field =
-  'w-full rounded-2xl border border-white/10 bg-ink-950/60 px-4 py-3.5 text-white placeholder:text-steel-500 transition-colors focus:border-ice-300 focus:bg-ink-950 focus:outline-none'
+  'w-full rounded-2xl border border-white/10 bg-ink-950/60 px-4 py-3.5 text-white placeholder:text-steel-400 transition-colors focus:border-ice-300 focus:bg-ink-950 focus:outline-none'
 const label = 'mb-2 block text-sm font-medium text-steel-200'
 
 export default function Contact() {
@@ -19,9 +19,14 @@ export default function Contact() {
   const [fileError, setFileError] = useState<string | null>(null)
   const formRef = useRef<HTMLFormElement>(null)
 
+  const fileRef = useRef<HTMLInputElement>(null)
+
   const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    if (fileError) return
+    if (fileError) {
+      fileRef.current?.focus()
+      return
+    }
     const form = e.currentTarget
     const data = new FormData(form)
     setStatus('sending')
@@ -53,8 +58,8 @@ export default function Contact() {
         <div className="absolute -right-40 -bottom-48 size-[40rem] rounded-full bg-heat-500/15 blur-[140px]" />
       </div>
 
-      <div className="container-x grid gap-14 lg:grid-cols-12 lg:gap-16">
-        <div className="lg:col-span-5">
+      <div className="container-x grid grid-cols-1 gap-14 lg:grid-cols-12 lg:gap-16">
+        <div className="min-w-0 lg:col-span-5">
           <Reveal>
             <p className="eyebrow flex items-center gap-3 text-steel-300">
               <span aria-hidden className="bg-thermal inline-block h-px w-8" />
@@ -112,7 +117,7 @@ export default function Contact() {
           </Reveal>
         </div>
 
-        <Reveal delay={80} className="lg:col-span-7">
+        <Reveal delay={80} className="min-w-0 lg:col-span-7">
           <div className="rounded-[28px] border border-white/10 bg-ink-850/80 p-6 shadow-2xl backdrop-blur sm:p-10">
             {status === 'success' ? (
               <div className="flex min-h-[28rem] flex-col items-start justify-center" role="status">
@@ -137,7 +142,7 @@ export default function Contact() {
                 netlify-honeypot="bot-field"
                 encType="multipart/form-data"
                 onSubmit={onSubmit}
-                className="grid gap-5 sm:grid-cols-2"
+                className="grid grid-cols-1 gap-5 sm:grid-cols-2"
               >
                 <input type="hidden" name="form-name" value="kontakt" />
                 <p hidden>
@@ -212,29 +217,32 @@ export default function Contact() {
                   />
                 </div>
 
-                <div className="sm:col-span-2">
+                <div className="min-w-0 sm:col-span-2">
+                  <input
+                    ref={fileRef}
+                    id="f-file"
+                    name="plaene"
+                    type="file"
+                    accept=".pdf,.dwg,.dxf,.jpg,.jpeg,.png,.zip"
+                    aria-describedby="f-file-hint"
+                    aria-invalid={fileError ? true : undefined}
+                    className="peer sr-only"
+                    onChange={(e) => onFile(e.target.files?.[0])}
+                  />
                   <label
                     htmlFor="f-file"
-                    className="flex cursor-pointer items-center gap-4 rounded-2xl border border-dashed border-white/20 p-4 transition-colors hover:border-white/40 hover:bg-white/[0.03]"
+                    className="flex cursor-pointer items-center gap-4 rounded-2xl border border-dashed border-white/20 p-4 transition-colors peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-ice-400 hover:border-white/40 hover:bg-white/[0.03]"
                   >
                     <span className="grid size-10 shrink-0 place-items-center rounded-xl bg-white/10">
                       <FileUp className="size-5" aria-hidden />
                     </span>
                     <span className="min-w-0 text-sm">
                       <span className="block truncate font-medium text-white">{fileName ?? 'Pläne oder Ausschreibung anhängen'}</span>
-                      <span className={`block ${fileError ? 'text-heat-300' : 'text-steel-400'}`}>
-                        {fileError ?? `Optional · PDF, DWG, Bild oder ZIP · max. ${MAX_FILE_MB} MB`}
+                      <span id="f-file-hint" aria-live="polite" className={`block ${fileError ? 'text-heat-300' : 'text-steel-400'}`}>
+                        {fileError ?? `Optional · PDF, DWG, DXF, Bild oder ZIP · max. ${MAX_FILE_MB} MB`}
                       </span>
                     </span>
                   </label>
-                  <input
-                    id="f-file"
-                    name="plaene"
-                    type="file"
-                    accept=".pdf,.dwg,.dxf,.jpg,.jpeg,.png,.zip"
-                    className="sr-only"
-                    onChange={(e) => onFile(e.target.files?.[0])}
-                  />
                 </div>
 
                 <label className="flex items-start gap-3 text-sm leading-relaxed text-steel-300 sm:col-span-2">
@@ -249,7 +257,7 @@ export default function Contact() {
                 </label>
 
                 <div className="flex flex-col gap-4 sm:col-span-2 sm:flex-row sm:items-center sm:justify-between">
-                  <p className="text-sm text-steel-500">* Pflichtfelder</p>
+                  <p className="text-sm text-steel-400">* Pflichtfelder</p>
                   <button type="submit" disabled={status === 'sending'} className="btn btn-primary disabled:opacity-70">
                     {status === 'sending' ? (
                       <>

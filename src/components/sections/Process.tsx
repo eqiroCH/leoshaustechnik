@@ -12,7 +12,7 @@ export default function Process() {
         <SectionHeading
           eyebrow="Ablauf"
           title="Von der Anfrage bis zur dichten Leitung."
-          intro="Klare Schritte, feste Ansprechpartner und eine Montage, die sich nach Ihrem Bauprogramm richtet."
+          intro="Klare Schritte, direkte Ansprechpartner und eine Montage, die sich nach Ihrem Bauprogramm richtet."
         />
 
         <ol ref={ref} className="relative mt-16 grid gap-10 sm:mt-20 lg:grid-cols-4 lg:gap-8">

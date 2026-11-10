@@ -19,8 +19,8 @@ export default function About() {
             <p>
               Hinter {company.shortName} stehen <strong className="font-semibold text-ink-900">Leonard Andreic</strong> und{' '}
               <strong className="font-semibold text-ink-900">Leonardo Mistrafovic</strong>. {company.founded} haben die beiden
-              in {company.city} {company.canton} ihre eigene Firma gegründet, mit einem klaren Fokus: Installation und
-              Feinverteilung von Kühldecken.
+              in {company.city} {company.canton} ihre eigene Firma gegründet, mit einem klaren Fokus: Montage von Heiz- und
+              Kühldeckensegeln samt Feinverteilung.
             </p>
             <p>
               Seither montieren wir Heiz- und Kühldeckensegel in Büros, Laboren und Gewerbebauten. Unser Anspruch: Am Ende
@@ -54,7 +54,7 @@ export default function About() {
             <ul className="mt-8 space-y-7">
               {values.map((v, i) => (
                 <li key={v.title} className="flex gap-5">
-                  <span className="mt-1 font-mono text-sm text-steel-500">0{i + 1}</span>
+                  <span className="mt-1 font-mono text-sm text-steel-400">0{i + 1}</span>
                   <div>
                     <p className="font-display text-xl font-bold">{v.title}</p>
                     <p className="mt-1.5 leading-relaxed text-steel-300">{v.text}</p>

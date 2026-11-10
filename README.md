@@ -10,7 +10,7 @@ One-Pager für die **Leo's Haustechnik GmbH** (Buchrain LU): Heiz- und Kühldeck
 ```bash
 npm install
 npm run dev        # http://localhost:5173
-npm run build      # Typecheck + Produktions-Build nach dist/
+npm run build      # Typecheck + Build + Prerendering von /, /impressum, /datenschutz nach dist/
 npm run preview
 ```
 
@@ -31,6 +31,7 @@ Telefon und E-Mail werden nur angezeigt, wenn sie dort gesetzt sind.
 - [ ] **E-Mail-Adresse** `info@leos-haustechnik.ch` existiert? (Domain hat Hostpoint-Mail, Adresse nicht verifiziert)
 - [ ] **Partnerschaft Durrer Technik AG** darf auf der Website genannt werden?
 - [ ] Leistungsumfang „Dichtheitsprüfung & Übergabe“ (Druckprobe, Spülen, Füllen?) korrekt?
+- [ ] Schlauchtyp beim Segelanschluss (z. B. sauerstoffdiffusionsdicht) – dann im Text ergänzen
 - [ ] Argumente „effizient mit Wärmepumpe“ / „geringe Bauhöhe, auch Sanierung“ für ihre Projekte zutreffend?
 - [ ] Einsatzgebiet (Zentralschweiz? Zürich? ganze Deutschschweiz?)
 - [ ] Teamfotos von Leonard Andreic & Leonardo Mistrafovic (aktuell Initialen)
@@ -41,5 +42,7 @@ Telefon und E-Mail werden nur angezeigt, wenn sie dort gesetzt sind.
 
 ## Deployment (Netlify)
 
-`netlify.toml` ist vorkonfiguriert (Build, SPA-Redirect, Cache- & Security-Header).
+`netlify.toml` ist vorkonfiguriert (Build, Node 22, Cache- & Security-Header).
+Die drei Seiten werden beim Build vorgerendert (`src/entry-server.tsx` + `scripts/prerender.mjs`) und im Browser hydratisiert;
+unbekannte URLs liefern `dist/404.html` mit Status 404 und `noindex`.
 Das Kontaktformular wird über das versteckte `<form name="kontakt">` in `index.html` von Netlify Forms erkannt.

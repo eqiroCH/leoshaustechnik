@@ -12,7 +12,7 @@ const modes: Record<
   heat: {
     label: 'Heizen',
     title: 'Im Winter: Wärme wie von der Sonne.',
-    text: 'Warmes Wasser durchströmt das Segel. Es gibt seine Wärme grösstenteils als Strahlung ab. Menschen, Böden und Wände werden direkt erwärmt, ohne Luftzug und ohne aufgewirbelten Staub.',
+    text: 'Warmes Wasser durchströmt das Segel. Das Segel gibt die Wärme grösstenteils als Strahlung ab. Menschen, Böden und Wände werden direkt erwärmt, ohne Luftzug und ohne aufgewirbelten Staub.',
     strong: '#f0766d',
     soft: '#f7b8b4',
     Icon: Sun,
@@ -20,7 +20,7 @@ const modes: Record<
   cool: {
     label: 'Kühlen',
     title: 'Im Sommer: Kühle ohne Zugluft.',
-    text: 'Durch dasselbe Segel fliesst nun kühles Wasser. Es nimmt die Wärme von Menschen, Geräten und Sonneneinstrahlung auf. Leise, zugfrei und ganz ohne Gebläse.',
+    text: 'Durch dasselbe Segel fliesst nun kühles Wasser. Das Segel nimmt die Wärme von Menschen, Geräten und Sonneneinstrahlung auf. Leise, zugfrei und ganz ohne Gebläse.',
     strong: '#6fc0ec',
     soft: '#cde9f7',
     Icon: Snowflake,
@@ -33,7 +33,7 @@ const benefits = [
   { Icon: MoveHorizontal, title: 'Freie Wände & Böden', text: 'Die Technik hängt an der Decke. Der Raum bleibt frei nutzbar.' },
   { Icon: AudioLines, title: 'Bessere Akustik', text: 'Segel lassen sich mit Akustikflächen kombinieren und dämpfen Schall.' },
   { Icon: Leaf, title: 'Effizient', text: 'Moderate Wassertemperaturen passen ideal zu Wärmepumpen.' },
-  { Icon: Ruler, title: 'Geringe Bauhöhe', text: 'Wenig Abhängehöhe, damit auch in Sanierungen gut einsetzbar.' },
+  { Icon: Ruler, title: 'Geringe Bauhöhe', text: 'Braucht wenig Abhängehöhe und eignet sich daher auch für Sanierungen.' },
 ]
 
 const SLATS = Array.from({ length: 10 }, (_, i) => 100 + i * 44)
@@ -63,7 +63,7 @@ function RoomDiagram({ mode }: { mode: Mode }) {
       <rect x="0" y="0" width="640" height="40" fill="#22272e" />
       <rect x="0" y="0" width="640" height="40" fill="url(#hatch)" />
       <line x1="0" y1="40.5" x2="640" y2="40.5" stroke="rgba(255,255,255,0.14)" />
-      <text x="628" y="26" textAnchor="end" className="fill-steel-400 font-mono text-[10px] tracking-[0.15em] uppercase">
+      <text x="628" y="26" textAnchor="end" className="fill-steel-400 font-mono text-[10px] tracking-[0.15em] uppercase max-sm:hidden">
         Rohdecke
       </text>
 
@@ -94,10 +94,10 @@ function RoomDiagram({ mode }: { mode: Mode }) {
           className="animate-flow transition-[stroke] duration-700 [animation-direction:reverse]"
         />
       </g>
-      <text x="6" y="51" className="fill-steel-400 font-mono text-[10px] tracking-[0.12em] uppercase">
+      <text x="6" y="51" className="fill-steel-400 font-mono text-[10px] tracking-[0.12em] uppercase max-sm:hidden">
         Vorlauf
       </text>
-      <text x="6" y="93" className="fill-steel-400 font-mono text-[10px] tracking-[0.12em] uppercase">
+      <text x="6" y="93" className="fill-steel-400 font-mono text-[10px] tracking-[0.12em] uppercase max-sm:hidden">
         Rücklauf
       </text>
 
@@ -108,7 +108,7 @@ function RoomDiagram({ mode }: { mode: Mode }) {
           <circle cx={x + 19} cy="106" r="4" fill={m.strong} className="transition-[fill] duration-700" />
         </g>
       ))}
-      <text x="540" y="118" className="fill-steel-300 font-mono text-[10px] tracking-[0.12em] uppercase">
+      <text x="540" y="118" className="fill-steel-300 font-mono text-[10px] tracking-[0.12em] uppercase max-sm:hidden">
         Segel
       </text>
 
@@ -151,19 +151,26 @@ function RoomDiagram({ mode }: { mode: Mode }) {
 export default function Principle() {
   const [mode, setMode] = useState<Mode>('heat')
   const [touched, setTouched] = useState(false)
+  const [autoDone, setAutoDone] = useState(false)
   const [ref, inView] = useInView<HTMLDivElement>({ threshold: 0.4 }, false)
 
+  // Einmaliger automatischer Wechsel Heizen → Kühlen, damit auch Vorbeiscrollende beide Zustände sehen.
+  // Keine Dauerschleife; jede Interaktion (Hover, Fokus, Klick) beendet ihn.
   useEffect(() => {
-    if (touched || !inView) return
+    if (touched || autoDone || !inView) return
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
-    const t = window.setInterval(() => setMode((m) => (m === 'heat' ? 'cool' : 'heat')), 6000)
-    return () => window.clearInterval(t)
-  }, [touched, inView])
+    const t = window.setTimeout(() => {
+      setMode('cool')
+      setAutoDone(true)
+    }, 4500)
+    return () => window.clearTimeout(t)
+  }, [touched, autoDone, inView])
 
   const select = (m: Mode) => {
     setTouched(true)
     setMode(m)
   }
+  const stopAuto = () => setAutoDone(true)
 
   return (
     <section id="prinzip" className="relative overflow-hidden bg-ink-950 py-24 text-white sm:py-32">
@@ -181,60 +188,97 @@ export default function Principle() {
           intro="Heiz- und Kühldeckensegel arbeiten mit Strahlung statt mit bewegter Luft. Das fühlt sich an wie Sonne im Winter und Schatten im Sommer."
         />
 
-        <Reveal className="mt-14 grid gap-6 lg:mt-20 lg:grid-cols-12 lg:gap-8">
-          <div ref={ref} className="relative overflow-hidden rounded-[28px] border border-white/[0.08] bg-ink-850 p-5 sm:p-8 lg:col-span-7">
-            <div className="bg-grid absolute inset-0 opacity-60" aria-hidden />
-            <div className="relative" id="prinzip-panel" role="tabpanel" aria-labelledby={`tab-${mode}`}>
-              <RoomDiagram mode={mode} />
+        <Reveal
+          onPointerEnter={stopAuto}
+          onFocusCapture={stopAuto}
+          className="mt-12 grid gap-4 sm:gap-6 lg:mt-20 lg:grid-cols-12 lg:grid-rows-[auto_1fr] lg:gap-x-8 lg:gap-y-0">
+          {/* Desktop: gemeinsame Karte hinter Umschalter + Text */}
+          <div
+            aria-hidden
+            className="hidden rounded-[28px] border border-white/[0.08] bg-ink-900 lg:col-span-5 lg:col-start-8 lg:row-span-2 lg:row-start-1 lg:block"
+          />
+
+          {/* Umschalter – mobil über dem Diagramm, damit man die Änderung sieht */}
+          <div className="relative lg:col-span-5 lg:col-start-8 lg:row-start-1 lg:px-10 lg:pt-10">
+            <div
+              role="group"
+              aria-label="Betriebsart"
+              className="flex w-full rounded-full border border-white/10 bg-ink-900 p-1 sm:inline-flex sm:w-auto lg:bg-ink-950"
+            >
+              {(Object.keys(modes) as Mode[]).map((k) => {
+                const { label, Icon } = modes[k]
+                const selected = mode === k
+                return (
+                  <button
+                    key={k}
+                    id={`tab-${k}`}
+                    type="button"
+                    aria-pressed={selected}
+                    aria-controls="prinzip-panel"
+                    onClick={() => select(k)}
+                    className={`inline-flex flex-1 items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-semibold transition-all duration-500 sm:flex-none sm:py-2.5 ${
+                      selected
+                        ? k === 'heat'
+                          ? 'bg-heat-300 text-ink-950'
+                          : 'bg-ice-300 text-ink-950'
+                        : 'text-steel-300 hover:text-white'
+                    }`}
+                  >
+                    <Icon className="size-4" aria-hidden />
+                    {label}
+                  </button>
+                )
+              })}
             </div>
           </div>
 
-          <div className="flex flex-col justify-between gap-10 rounded-[28px] border border-white/[0.08] bg-ink-900 p-6 sm:p-10 lg:col-span-5">
-            <div>
-              <div role="tablist" aria-label="Betriebsart" className="inline-flex rounded-full border border-white/10 bg-ink-950 p-1">
-                {(Object.keys(modes) as Mode[]).map((k) => {
-                  const { label, Icon } = modes[k]
-                  const selected = mode === k
-                  return (
-                    <button
-                      key={k}
-                      id={`tab-${k}`}
-                      type="button"
-                      role="tab"
-                      aria-selected={selected}
-                      aria-controls="prinzip-panel"
-                      onClick={() => select(k)}
-                      className={`inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold transition-all duration-500 ${
-                        selected
-                          ? k === 'heat'
-                            ? 'bg-heat-300 text-ink-950'
-                            : 'bg-ice-300 text-ink-950'
-                          : 'text-steel-300 hover:text-white'
-                      }`}
-                    >
-                      <Icon className="size-4" aria-hidden />
-                      {label}
-                    </button>
-                  )
-                })}
-              </div>
+          <div
+            ref={ref}
+            className="relative overflow-hidden rounded-[28px] border border-white/[0.08] bg-ink-850 p-3 sm:p-8 lg:col-span-7 lg:col-start-1 lg:row-span-2 lg:row-start-1"
+          >
+            <div className="bg-grid absolute inset-0 opacity-60" aria-hidden />
+            <div className="relative" id="prinzip-panel">
+              <RoomDiagram mode={mode} />
+              {/* Legende – auf kleinen Bildschirmen statt der (zu kleinen) Beschriftungen im Diagramm */}
+              <ul className="mt-2 flex flex-wrap gap-x-5 gap-y-2 px-2 pb-2 text-xs text-steel-300 sm:hidden">
+                <li className="flex items-center gap-2">
+                  <span aria-hidden className="h-[3px] w-5 rounded-full transition-colors duration-700" style={{ background: modes[mode].strong }} />
+                  Vorlauf
+                </li>
+                <li className="flex items-center gap-2">
+                  <span aria-hidden className="h-[3px] w-5 rounded-full transition-colors duration-700" style={{ background: modes[mode].soft }} />
+                  Rücklauf
+                </li>
+                <li className="flex items-center gap-2">
+                  <span aria-hidden className="h-1.5 w-5 rounded-sm bg-steel-200" />
+                  Segel
+                </li>
+                <li className="flex items-center gap-2">
+                  <span aria-hidden className="text-sm leading-none transition-colors duration-700" style={{ color: modes[mode].soft }}>
+                    {mode === 'heat' ? '↓' : '↑'}
+                  </span>
+                  {mode === 'heat' ? 'Wärmestrahlung' : 'Wärmeaufnahme'}
+                </li>
+              </ul>
+            </div>
+          </div>
 
-              <div className="mt-10 grid" aria-live="polite">
-                {(Object.keys(modes) as Mode[]).map((k) => (
-                  <div
-                    key={k}
-                    aria-hidden={mode !== k}
-                    className={`[grid-area:1/1] transition-all duration-700 ${
-                      mode === k ? 'translate-y-0 opacity-100' : 'pointer-events-none translate-y-3 opacity-0'
-                    }`}
-                  >
-                    <h3 className={`font-display text-2xl leading-tight font-bold sm:text-3xl ${k === 'heat' ? 'text-heat-200' : 'text-ice-200'}`}>
-                      {modes[k].title}
-                    </h3>
-                    <p className="mt-5 text-lg leading-relaxed text-steel-300">{modes[k].text}</p>
-                  </div>
-                ))}
-              </div>
+          <div className="relative flex flex-col justify-between gap-8 rounded-[28px] border border-white/[0.08] bg-ink-900 p-6 sm:p-10 lg:col-span-5 lg:col-start-8 lg:row-start-2 lg:rounded-none lg:border-0 lg:bg-transparent lg:px-10 lg:pt-10 lg:pb-10">
+            <div className="grid" aria-live={touched ? 'polite' : 'off'}>
+              {(Object.keys(modes) as Mode[]).map((k) => (
+                <div
+                  key={k}
+                  aria-hidden={mode !== k}
+                  className={`[grid-area:1/1] transition-all duration-700 ${
+                    mode === k ? 'translate-y-0 opacity-100' : 'pointer-events-none translate-y-3 opacity-0'
+                  }`}
+                >
+                  <h3 className={`font-display text-2xl leading-tight font-bold sm:text-3xl ${k === 'heat' ? 'text-heat-200' : 'text-ice-200'}`}>
+                    {modes[k].title}
+                  </h3>
+                  <p className="mt-4 text-[1.05rem] leading-relaxed text-steel-300 sm:mt-5 sm:text-lg">{modes[k].text}</p>
+                </div>
+              ))}
             </div>
 
             <p className="eyebrow border-t border-white/10 pt-6 text-steel-400">
@@ -243,16 +287,16 @@ export default function Principle() {
           </div>
         </Reveal>
 
-        <ul className="mt-6 grid gap-px overflow-hidden rounded-[28px] border border-white/[0.08] bg-white/[0.08] sm:grid-cols-2 lg:mt-8 lg:grid-cols-3">
+        <ul className="mt-4 grid grid-cols-2 gap-px overflow-hidden rounded-[28px] border border-white/[0.08] bg-white/[0.08] sm:mt-6 lg:mt-8 lg:grid-cols-3">
           {benefits.map(({ Icon, title, text }, i) => (
             <li key={title} className="bg-ink-950">
-              <Reveal delay={i * 60} className="flex h-full gap-5 p-6 sm:p-8">
-                <span className="grid size-11 shrink-0 place-items-center rounded-2xl border border-white/10 bg-ink-850 text-ice-200">
-                  <Icon className="size-5" aria-hidden />
+              <Reveal delay={i * 60} className="flex h-full flex-col gap-3 p-4 sm:flex-row sm:gap-5 sm:p-8">
+                <span className="grid size-9 shrink-0 place-items-center rounded-xl border border-white/10 bg-ink-850 text-ice-200 sm:size-11 sm:rounded-2xl">
+                  <Icon className="size-4 sm:size-5" aria-hidden />
                 </span>
                 <div>
-                  <h3 className="font-semibold text-white">{title}</h3>
-                  <p className="mt-1.5 leading-relaxed text-steel-400">{text}</p>
+                  <h3 className="text-[0.95rem] leading-snug font-semibold text-white sm:text-base">{title}</h3>
+                  <p className="mt-1.5 text-sm leading-relaxed text-steel-400 sm:text-base">{text}</p>
                 </div>
               </Reveal>
             </li>

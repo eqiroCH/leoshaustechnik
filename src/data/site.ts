@@ -9,7 +9,7 @@ export const company = {
   city: 'Buchrain',
   canton: 'LU',
   uid: 'CHE-460.320.947',
-  register: 'Handelsregister des Kantons Luzern',
+  register: 'Handelsregisteramt des Kantons Luzern',
   founded: 2019,
   people: [
     { name: 'Leonard Andreic', role: 'Gesellschafter · Vorsitzender der Geschäftsführung' },
@@ -52,9 +52,9 @@ export const services: Service[] = [
   {
     id: 'deckensegel',
     no: '01',
-    title: 'Heiz- & Kühldeckensegel',
+    title: 'Heiz- & Kühl\u00addecken\u00adsegel',
     kicker: 'Montage',
-    text: 'Wir hängen Deckensegel millimetergenau ab, für Büros, Labore, Schulen und Werkhallen. Ein Segel heizt im Winter und kühlt im Sommer, ohne Luftzug und ohne Lärm.',
+    text: 'Wir hängen Deckensegel präzise ab: in Büros, Laboren und Werkhallen. Ein Segel heizt im Winter und kühlt im Sommer, ohne Luftzug und ohne Lärm.',
     points: [
       'Abhängung an Ketten, Seilen oder Gewindestangen',
       'Exaktes Nivellieren und Ausrichten ganzer Segelreihen',
@@ -69,7 +69,7 @@ export const services: Service[] = [
     no: '02',
     title: 'Feinverteilung Heizung & Kälte',
     kicker: 'Leitungsbau',
-    text: 'Von der Steigzone bis zum einzelnen Segel: Wir bauen das Leitungsnetz, das Wärme und Kälte genau dorthin bringt, wo sie gebraucht werden. Sauber verpresst und sauber geführt.',
+    text: 'Von der Steigzone bis zum einzelnen Segel: Wir bauen das Leitungsnetz, das Wärme und Kälte genau dorthin bringt, wo sie gebraucht werden. Fachgerecht verpresst, sauber geführt.',
     points: [
       'Verteil- und Anschlussleitungen in Pressfitting-Technik',
       'Abzweige mit Kugelhähnen und Absperrungen',
@@ -84,11 +84,12 @@ export const services: Service[] = [
     no: '03',
     title: 'Segelanschluss & Ventilgruppen',
     kicker: 'Anschluss',
-    text: 'Jedes Segel wird mit sauerstoffdiffusionsdichten Flexschläuchen angeschlossen. Ventilgruppen mit Stellantrieben machen das System bereit für die Gebäudeautomation.',
+    // TODO: Schlauchtyp (z. B. sauerstoffdiffusionsdicht) vom Kunden bestätigen lassen, dann ergänzen
+    text: 'Jedes Segel wird über Flexschläuche angeschlossen. Ventilgruppen mit Stellantrieben machen das System bereit für die Gebäudeautomation.',
     points: [
       'Flexanschlüsse für jedes Segel',
       'Ventilgruppen mit motorischen Stellantrieben',
-      'Dichtheitsprüfung und saubere Übergabe', // TODO: Umfang (Druckprobe/Spülen/Füllen) bestätigen
+      'Dichtheitsprüfung und Übergabe', // TODO: Umfang (Druckprobe/Spülen/Füllen) bestätigen
     ],
     image: 'feinverteilung-flexanschluss',
     alt: 'Pressfitting-T-Stücke mit Kugelhähnen und geflochtenen Flexschläuchen, die zu den Deckensegeln führen',
@@ -173,7 +174,7 @@ export const process = [
   {
     no: '04',
     title: 'Prüfung & Übergabe',
-    text: 'Dichtheitsprüfung, Kontrolle aller Anschlüsse und eine saubere Baustelle. Erst dann übergeben wir.',
+    text: 'Dichtheitsprüfung, Kontrolle aller Anschlüsse und eine aufgeräumte Baustelle. Erst dann übergeben wir.',
   },
 ]
 
@@ -181,5 +182,5 @@ export const values = [
   { title: 'Präzision', text: 'Saubere Pressungen, gerade Leitungen, Segel in einer Flucht.' },
   { title: 'Termintreue', text: 'Wir planen mit dem Bauprogramm, nicht dagegen.' },
   { title: 'Alles aus einer Hand', text: 'Segel, Feinverteilung und Anschluss aus einem Team.' },
-  { title: 'Saubere Baustelle', text: 'Wir hinterlassen den Arbeitsplatz so, wie wir ihn uns wünschen.' },
+  { title: 'Saubere Baustelle', text: 'Wir verlassen jede Baustelle so, wie wir sie selbst gerne antreffen würden.' },
 ]

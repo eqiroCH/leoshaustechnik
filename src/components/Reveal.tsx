@@ -30,17 +30,18 @@ export function useInView<T extends Element>(options: IntersectionObserverInit =
   return [ref, inView] as const
 }
 
-type RevealProps = {
+type RevealProps = Omit<React.HTMLAttributes<HTMLElement>, 'children'> & {
   as?: ElementType
   delay?: number
   className?: string
   children: ReactNode
 }
 
-export default function Reveal({ as: Tag = 'div', delay = 0, className = '', children }: RevealProps) {
+export default function Reveal({ as: Tag = 'div', delay = 0, className = '', children, ...rest }: RevealProps) {
   const [ref, inView] = useInView<HTMLElement>()
   return (
     <Tag
+      {...rest}
       ref={ref}
       className={`reveal ${inView ? 'is-visible' : ''} ${className}`}
       style={{ '--reveal-delay': `${delay}ms` } as React.CSSProperties}

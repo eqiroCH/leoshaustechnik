@@ -29,7 +29,7 @@ function Row({ hidden = false }: { hidden?: boolean }) {
 export default function Marquee() {
   return (
     <div className="relative overflow-hidden border-y border-white/[0.07] bg-ink-900 py-6">
-      <div className="flex w-max animate-marquee motion-reduce:animate-none">
+      <div className="flex w-max animate-marquee hover:[animation-play-state:paused] motion-reduce:animate-none">
         <Row />
         <Row hidden />
       </div>

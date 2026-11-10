@@ -1,8 +1,11 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { ArrowUpRight, Menu, Phone, X } from 'lucide-react'
 import { LogoHorizontal } from './brand/Logo'
 import { company, nav, phoneHref } from '../data/site'
+import SectionLink from './SectionLink'
+
+const navIds = nav.map((n) => n.id)
 
 function useActiveSection(ids: readonly string[], enabled: boolean) {
   const [active, setActive] = useState<string | null>(null)
@@ -29,10 +32,8 @@ export default function Header() {
   const isHome = pathname === '/'
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
-  const active = useActiveSection(
-    nav.map((n) => n.id),
-    isHome,
-  )
+  const active = useActiveSection(navIds, isHome)
+  const toggleRef = useRef<HTMLButtonElement>(null)
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24)
@@ -41,17 +42,33 @@ export default function Header() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
+  // Offenes Menü: Seite sperren, Hintergrund inert (Fokus bleibt im Menü), Escape schliesst
   useEffect(() => {
-    document.documentElement.style.overflow = open ? 'hidden' : ''
     if (!open) return
-    const onKey = (e: KeyboardEvent) => e.key === 'Escape' && setOpen(false)
+    const root = document.documentElement
+    const blocked = [document.getElementById('main'), document.querySelector('footer')].filter(Boolean) as HTMLElement[]
+    root.style.overflow = 'hidden'
+    blocked.forEach((el) => el.setAttribute('inert', ''))
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key !== 'Escape') return
+      setOpen(false)
+      toggleRef.current?.focus()
+    }
+    // Wird das Fenster breit (z. B. Tablet gedreht), Menü schliessen
+    const mq = window.matchMedia('(min-width: 1024px)')
+    const onMq = () => mq.matches && setOpen(false)
     window.addEventListener('keydown', onKey)
-    return () => window.removeEventListener('keydown', onKey)
+    mq.addEventListener('change', onMq)
+    return () => {
+      root.style.overflow = ''
+      blocked.forEach((el) => el.removeAttribute('inert'))
+      window.removeEventListener('keydown', onKey)
+      mq.removeEventListener('change', onMq)
+    }
   }, [open])
 
   useEffect(() => setOpen(false), [pathname])
 
-  const href = (id: string) => (isHome ? `#${id}` : `/#${id}`)
   const solid = scrolled || open
 
   return (
@@ -75,8 +92,8 @@ export default function Header() {
           <ul className="flex items-center gap-1">
             {nav.map((item) => (
               <li key={item.id}>
-                <a
-                  href={href(item.id)}
+                <SectionLink
+                  id={item.id}
                   aria-current={active === item.id ? 'true' : undefined}
                   className={`relative rounded-full px-4 py-2 text-[0.92rem] font-medium transition-colors ${
                     active === item.id ? 'text-white' : 'text-steel-300 hover:text-white'
@@ -89,7 +106,7 @@ export default function Header() {
                       active === item.id ? 'scale-x-100' : 'scale-x-0'
                     }`}
                   />
-                </a>
+                </SectionLink>
               </li>
             ))}
           </ul>
@@ -105,11 +122,12 @@ export default function Header() {
               {company.phone}
             </a>
           )}
-          <a href={href('kontakt')} className="btn btn-primary hidden !py-2.5 !text-sm sm:inline-flex">
+          <SectionLink id="kontakt" className="btn btn-primary hidden !py-2.5 !text-sm sm:inline-flex">
             Offerte anfragen
             <ArrowUpRight className="size-4" aria-hidden />
-          </a>
+          </SectionLink>
           <button
+            ref={toggleRef}
             type="button"
             onClick={() => setOpen((o) => !o)}
             aria-expanded={open}
@@ -132,14 +150,14 @@ export default function Header() {
           <ul className="flex flex-col">
             {[...nav, { id: 'kontakt', label: 'Kontakt' }].map((item, i) => (
               <li key={item.id} className="border-b border-white/[0.07]">
-                <a
-                  href={href(item.id)}
+                <SectionLink
+                  id={item.id}
                   onClick={() => setOpen(false)}
                   className="font-display flex items-baseline justify-between py-5 text-3xl font-semibold text-white"
                 >
                   {item.label}
-                  <span className="font-mono text-xs text-steel-500">0{i + 1}</span>
-                </a>
+                  <span className="font-mono text-xs text-steel-400">0{i + 1}</span>
+                </SectionLink>
               </li>
             ))}
           </ul>

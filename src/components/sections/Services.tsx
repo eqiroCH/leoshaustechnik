@@ -10,7 +10,7 @@ const toneDot: Record<Service['tone'], string> = {
   neutral: 'bg-thermal',
 }
 
-const scope = ['Holz-, Beton- und Hybridbau', 'Büro, Labor, Schule, Werkhalle', 'Einzelgewerk oder Komplettpaket']
+const scope = ['Holz-, Beton- und Hybridbau', 'Büro, Labor, Werkhalle', 'Einzelgewerk oder Komplettpaket']
 
 export default function Services() {
   return (
@@ -26,7 +26,7 @@ export default function Services() {
                 Alles zwischen <span className="text-steel-500">Steigzone</span> und Segel.
               </>
             }
-            intro="Wir haben uns auf eine Sache spezialisiert und machen sie richtig: Heiz- und Kühldecken, inklusive der Leitungen, die sie versorgen. So bleibt die Verantwortung in einer Hand."
+            intro="Wir haben uns auf eine Sache spezialisiert und machen sie richtig: Heiz- und Kühldeckensegel, inklusive der Leitungen, die sie versorgen. So bleibt die Verantwortung in einer Hand."
           />
           <Reveal delay={120} className="lg:col-span-4">
             <ul className="flex flex-wrap gap-2 lg:justify-end">
@@ -39,18 +39,18 @@ export default function Services() {
           </Reveal>
         </div>
 
-        <div className="mt-20 space-y-24 sm:mt-28 sm:space-y-32">
+        <div className="mt-16 space-y-20 sm:mt-28 sm:space-y-32">
           {services.map((s, i) => {
             const flip = i % 2 === 1
             return (
-              <article key={s.id} id={s.id} className="grid items-center gap-10 lg:grid-cols-12 lg:gap-16">
-                <Reveal className={`lg:col-span-6 ${flip ? 'lg:order-2 lg:col-start-7' : ''}`}>
+              <article key={s.id} id={s.id} className="grid items-center gap-8 md:grid-cols-12 md:gap-10 lg:gap-16">
+                <Reveal className={`md:col-span-6 ${flip ? 'md:order-2 md:col-start-7' : ''}`}>
                   <div className="group relative overflow-hidden rounded-[28px] bg-concrete-200">
                     <Picture
                       name={s.image}
                       alt={s.alt}
-                      sizes="(min-width: 1024px) 46vw, 92vw"
-                      imgClassName="aspect-[4/4.4] w-full object-cover transition-transform duration-[1.4s] ease-[var(--ease-out-expo)] group-hover:scale-[1.04]"
+                      sizes="(min-width: 768px) 46vw, 92vw"
+                      imgClassName="aspect-[4/3.6] w-full object-cover sm:aspect-[4/4.4] transition-transform duration-[1.4s] ease-[var(--ease-out-expo)] group-hover:scale-[1.04]"
                     />
                     <div className="absolute top-5 left-5 flex items-center gap-2 rounded-full bg-white/90 px-3.5 py-1.5 backdrop-blur">
                       <span aria-hidden className={`size-2 rounded-full ${toneDot[s.tone]}`} />
@@ -59,11 +59,11 @@ export default function Services() {
                   </div>
                 </Reveal>
 
-                <Reveal delay={120} className={`lg:col-span-5 ${flip ? 'lg:order-1 lg:col-start-1' : 'lg:col-start-8'}`}>
+                <Reveal delay={120} className={`md:col-span-6 lg:col-span-5 ${flip ? 'md:order-1 md:col-start-1' : 'lg:col-start-8'}`}>
                   <p className="font-mono text-sm text-steel-500">
                     <span className="text-ink-900">{s.no}</span> / 0{services.length}
                   </p>
-                  <h3 className="font-display mt-4 text-3xl leading-[1.08] font-bold text-ink-950 text-balance sm:text-[2.6rem]">
+                  <h3 className="font-display mt-4 text-3xl leading-[1.08] font-bold text-ink-950 text-balance hyphens-auto sm:text-[2.6rem] md:text-[2.1rem] lg:text-[2.3rem] xl:text-[2.6rem]">
                     {s.title}
                   </h3>
                   <p className="mt-6 text-lg leading-relaxed text-ink-600 text-pretty">{s.text}</p>

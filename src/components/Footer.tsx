@@ -1,11 +1,10 @@
-import { Link, useLocation } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { ArrowUp } from 'lucide-react'
 import { LogoStacked } from './brand/Logo'
 import { company, nav, phoneHref } from '../data/site'
+import SectionLink from './SectionLink'
 
 export default function Footer() {
-  const { pathname } = useLocation()
-  const href = (id: string) => (pathname === '/' ? `#${id}` : `/#${id}`)
   const year = new Date().getFullYear()
 
   return (
@@ -20,25 +19,25 @@ export default function Footer() {
         </div>
 
         <nav aria-label="Footer" className="lg:col-span-2 lg:col-start-6">
-          <p className="eyebrow text-steel-500">Navigation</p>
+          <p className="eyebrow text-steel-400">Navigation</p>
           <ul className="mt-5 space-y-3">
             {nav.map((n) => (
               <li key={n.id}>
-                <a href={href(n.id)} className="transition-colors hover:text-white">
+                <SectionLink id={n.id} className="transition-colors hover:text-white">
                   {n.label}
-                </a>
+                </SectionLink>
               </li>
             ))}
             <li>
-              <a href={href('kontakt')} className="transition-colors hover:text-white">
+              <SectionLink id="kontakt" className="transition-colors hover:text-white">
                 Kontakt
-              </a>
+              </SectionLink>
             </li>
           </ul>
         </nav>
 
         <div className="lg:col-span-3">
-          <p className="eyebrow text-steel-500">Kontakt</p>
+          <p className="eyebrow text-steel-400">Kontakt</p>
           <address className="mt-5 space-y-3 not-italic">
             <p>
               {company.name}
@@ -65,7 +64,7 @@ export default function Footer() {
         </div>
 
         <div className="lg:col-span-2">
-          <p className="eyebrow text-steel-500">Rechtliches</p>
+          <p className="eyebrow text-steel-400">Rechtliches</p>
           <ul className="mt-5 space-y-3">
             <li>
               <Link to="/impressum" className="transition-colors hover:text-white">
