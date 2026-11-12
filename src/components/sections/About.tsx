@@ -14,21 +14,21 @@ export default function About() {
     <section id="ueber-uns" className="relative overflow-hidden bg-white py-24 sm:py-32">
       <div className="container-x grid gap-16 lg:grid-cols-12 lg:gap-12">
         <div className="lg:col-span-6">
-          <SectionHeading eyebrow="Über uns" title="Zwei Leos. Ein Anspruch." />
+          <SectionHeading eyebrow="Über uns" title="Spezialisten statt Generalisten." />
           <Reveal delay={100} className="mt-8 space-y-5 text-lg leading-relaxed text-ink-600 text-pretty">
             <p>
               Hinter {company.shortName} stehen <strong className="font-semibold text-ink-900">Leonard Andreic</strong> und{' '}
-              <strong className="font-semibold text-ink-900">Leonardo Mistrafovic</strong>. {company.founded} haben die beiden
-              in {company.city} {company.canton} ihre eigene Firma gegründet, mit einem klaren Fokus: Montage von Heiz- und
-              Kühldeckensegeln samt Feinverteilung.
+              <strong className="font-semibold text-ink-900">Leonardo Mistrafovic</strong>, beide gelernte Heizungs- bzw.
+              HLK-Monteure mit über 15 Jahren Erfahrung, davon über 10 Jahre spezialisiert auf Kühldecken.
             </p>
             <p>
-              Seither montieren wir Heiz- und Kühldeckensegel in Büros, Laboren und Gewerbebauten. Unser Anspruch: Am Ende
-              hängt alles in einer Flucht, jede Pressung ist dicht, und die Baustelle ist sauber.
+              Bei uns haben Sie direkte Ansprechpartner, die Ihr Projekt vom Start bis zur Abnahme persönlich begleiten. Wir
+              arbeiten sauber, halten Termine ein und finden Lösungen, wenn es auf der Baustelle eng wird.
             </p>
           </Reveal>
 
-          <Reveal delay={160} className="mt-10 grid gap-4 sm:grid-cols-2">
+          <p className="eyebrow mt-12 text-steel-500">Ihre Ansprechpartner</p>
+          <Reveal delay={160} className="mt-4 grid gap-4 sm:grid-cols-2">
             {company.people.map((p, i) => (
               <div key={p.name} className="flex items-center gap-4 rounded-[22px] border border-ink-900/10 bg-concrete-50 p-5">
                 <span

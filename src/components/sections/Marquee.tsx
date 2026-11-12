@@ -1,13 +1,13 @@
 const items = [
   'Heizdeckensegel',
   'Kühldeckensegel',
+  'Gipskühldecken',
   'Feinverteilung',
   'Pressfitting',
-  'Flexanschlüsse',
   'Ventilgruppen',
-  'Steigzonen',
+  'Bodenheizung',
   'Holz-Hybridbau',
-  'Büro · Labor · Werkhalle',
+  'Ganze Deutschschweiz',
 ]
 
 function Row({ hidden = false }: { hidden?: boolean }) {

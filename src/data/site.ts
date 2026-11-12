@@ -15,7 +15,6 @@ export const company = {
     { name: 'Leonard Andreic', role: 'Gesellschafter · Vorsitzender der Geschäftsführung' },
     { name: 'Leonardo Mistrafovic', role: 'Gesellschafter · Geschäftsführer' },
   ],
-  // TODO: E-Mail-Adresse bestätigen (Domain leos-haustechnik.ch hat Hostpoint-Mail, Adresse nicht verifiziert)
   email: 'info@leos-haustechnik.ch' as string | null,
   // TODO: Telefonnummer vom Kunden einholen. Solange null, wird keine Nummer angezeigt.
   phone: null as string | null,
@@ -31,6 +30,7 @@ export const phoneHref = company.phone ? `tel:${company.phone.replace(/[^+\d]/g,
 export const nav = [
   { id: 'leistungen', label: 'Leistungen' },
   { id: 'prinzip', label: 'Prinzip' },
+  { id: 'referenzen', label: 'Referenzen' },
   { id: 'projekte', label: 'Projekte' },
   { id: 'ablauf', label: 'Ablauf' },
   { id: 'ueber-uns', label: 'Über uns' },
@@ -43,7 +43,9 @@ export type Service = {
   kicker: string
   text: string
   points: string[]
-  image: ImageName
+  /** Foto – oder eine Illustration, wenn (noch) kein Foto existiert */
+  image?: ImageName
+  visual?: 'gips'
   alt: string
   tone: 'cold' | 'warm' | 'neutral'
 }
@@ -54,7 +56,7 @@ export const services: Service[] = [
     no: '01',
     title: 'Heiz- & Kühl\u00addecken\u00adsegel',
     kicker: 'Montage',
-    text: 'Wir hängen Deckensegel präzise ab: in Büros, Laboren und Werkhallen. Ein Segel heizt im Winter und kühlt im Sommer, ohne Luftzug und ohne Lärm.',
+    text: 'Wir hängen Deckensegel präzise ab: in Büros, Spitälern, Hochschulen und Werkhallen. Ein Segel heizt im Winter und kühlt im Sommer, ohne Luftzug und ohne Lärm.',
     points: [
       'Abhängung an Ketten, Seilen oder Gewindestangen',
       'Exaktes Nivellieren und Ausrichten ganzer Segelreihen',
@@ -65,36 +67,75 @@ export const services: Service[] = [
     tone: 'cold',
   },
   {
-    id: 'feinverteilung',
+    id: 'gipskuehldecken',
     no: '02',
-    title: 'Feinverteilung Heizung & Kälte',
-    kicker: 'Leitungsbau',
-    text: 'Von der Steigzone bis zum einzelnen Segel: Wir bauen das Leitungsnetz, das Wärme und Kälte genau dorthin bringt, wo sie gebraucht werden. Fachgerecht verpresst, sauber geführt.',
+    title: 'Gips\u00adkühl\u00addecken',
+    kicker: 'Unsichtbar',
+    text: 'Die Technik verschwindet in der Decke: Kühl- und Heizregister liegen über einer geschlossenen Gipsdecke. Das ergibt ein angenehmes Raumklima mit ruhigem, fugenlosem Deckenbild, im Büro ebenso wie in der exklusiven Eigentumswohnung.',
     points: [
-      'Verteil- und Anschlussleitungen in Pressfitting-Technik',
-      'Abzweige mit Kugelhähnen und Absperrungen',
-      'Leitungsführung durch Holz- und Betondecken',
+      'Montage der Kühl- und Heizregister',
+      'Anschluss an die Feinverteilung',
+      'Abstimmung mit dem Trockenbau', // TODO: Leistungsumfang bei Gipskühldecken vom Kunden bestätigen
     ],
-    image: 'feinverteilung-steigzone',
-    alt: 'Steigzone mit Vor- und Rücklaufleitungen, Kugelhähnen und Regelventil unter einer Holzbalkendecke',
-    tone: 'warm',
+    visual: 'gips',
+    alt: 'Querschnitt einer Gipskühldecke: Register über der geschlossenen Gipsplatte',
+    tone: 'cold',
   },
   {
-    id: 'anschluss',
+    id: 'feinverteilung',
     no: '03',
-    title: 'Segelanschluss & Ventilgruppen',
-    kicker: 'Anschluss',
-    // TODO: Schlauchtyp (z. B. sauerstoffdiffusionsdicht) vom Kunden bestätigen lassen, dann ergänzen
-    text: 'Jedes Segel wird über Flexschläuche angeschlossen. Ventilgruppen mit Stellantrieben machen das System bereit für die Gebäudeautomation.',
+    title: 'Feinverteilung Heizung & Kälte',
+    kicker: 'Leitungsbau',
+    text: 'Von der Zentrale bis zum letzten Deckenelement: Wir bauen das Leitungsnetz, das Wärme und Kälte genau dorthin bringt, wo sie gebraucht werden. Fachgerecht verpresst, sauber geführt.',
     points: [
-      'Flexanschlüsse für jedes Segel',
-      'Ventilgruppen mit motorischen Stellantrieben',
+      'Verteil- und Anschlussleitungen in Pressfitting-Technik',
+      'Anschluss jedes Segels über Flexschläuche', // TODO: Schlauchtyp (z. B. sauerstoffdiffusionsdicht) bestätigen
+      'Ventilgruppen mit Stellantrieben, bereit für die Gebäudeautomation',
       'Dichtheitsprüfung und Übergabe', // TODO: Umfang (Druckprobe/Spülen/Füllen) bestätigen
     ],
     image: 'feinverteilung-flexanschluss',
     alt: 'Pressfitting-T-Stücke mit Kugelhähnen und geflochtenen Flexschläuchen, die zu den Deckensegeln führen',
-    tone: 'neutral',
+    tone: 'warm',
   },
+]
+
+/** Weitere Leistungen (kompakte Karten unter den Hauptleistungen) */
+export const moreServices = [
+  {
+    id: 'bodenheizung',
+    title: 'Bodenheizung',
+    text: 'Verlegung von Bodenheizungen, sauber und sorgfältig.',
+    icon: 'serpentine' as const,
+  },
+  {
+    id: 'heizung-kaelte',
+    title: 'Heizung & Kälte',
+    text: 'Ausführung und Service, vom Einfamilienhaus bis zur Industrie.',
+    icon: 'thermo' as const,
+  },
+]
+
+/** Kennzahlen (Angaben des Kunden) */
+export const stats = [
+  { value: '15+', label: 'Jahre Erfahrung in der HLK-Branche' },
+  { value: '10+', label: 'Jahre spezialisiert auf Kühldecken' },
+  { value: '30+', label: 'Referenzprojekte' },
+]
+
+/** Referenzen (Auswahl, Angaben des Kunden) */
+export const references = [
+  { name: 'Polizei- und Justizzentrum', place: 'Zürich' },
+  { name: 'ETH Octavo', place: 'Zürich' },
+  { name: 'Kantonsspital St. Gallen', place: 'St. Gallen' },
+  { name: 'Pilatus, Neubau Schwarzhorn', place: 'Nidwalden' },
+  { name: 'HSG', place: 'St. Gallen' },
+  { name: 'Bucherer', place: 'Luzern' },
+  { name: 'The Circle', place: 'Zürich Flughafen' },
+  { name: 'Helvetia Tower', place: 'Pratteln' },
+  { name: 'Ernst & Young, Baloise Park', place: 'Basel' },
+  { name: 'Läderach Schoggierlebnis', place: 'Glarus' },
+  { name: 'Berufsfachschule', place: 'Winterthur' },
+  { name: 'Floating Garden', place: 'Zug' },
 ]
 
 export type GalleryItem = {
@@ -179,8 +220,8 @@ export const process = [
 ]
 
 export const values = [
-  { title: 'Präzision', text: 'Saubere Pressungen, gerade Leitungen, Segel in einer Flucht.' },
-  { title: 'Termintreue', text: 'Wir planen mit dem Bauprogramm, nicht dagegen.' },
-  { title: 'Alles aus einer Hand', text: 'Segel, Feinverteilung und Anschluss aus einem Team.' },
-  { title: 'Saubere Baustelle', text: 'Wir verlassen jede Baustelle so, wie wir sie selbst gerne antreffen würden.' },
+  { title: 'Direkte Ansprechpartner', text: 'Sie sprechen mit den Inhabern, vom Start bis zur Abnahme.' },
+  { title: 'Termintreu', text: 'Wir planen mit dem Bauprogramm, nicht dagegen.' },
+  { title: 'Sauber', text: 'Fachgerecht verpresst, sauber geführt, aufgeräumte Baustelle.' },
+  { title: 'Lösungsorientiert', text: 'Wenn es auf der Baustelle eng wird, finden wir einen Weg.' },
 ]

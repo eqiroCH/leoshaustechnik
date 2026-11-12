@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { ArrowUpRight, Menu, Phone, X } from 'lucide-react'
-import { LogoHorizontal } from './brand/Logo'
+import { LogoStacked } from './brand/Logo'
 import { company, nav, phoneHref } from '../data/site'
 import SectionLink from './SectionLink'
 
@@ -83,9 +83,9 @@ export default function Header() {
       >
         Zum Inhalt springen
       </a>
-      <div className="container-x flex h-[4.5rem] items-center justify-between gap-6 lg:h-20">
+      <div className="container-x flex h-[4.5rem] items-center justify-between gap-6 lg:h-[5.5rem]">
         <Link to="/" aria-label={`${company.shortName} – Startseite`} className="shrink-0 text-white">
-          <LogoHorizontal className="h-10 w-auto lg:h-11" />
+          <LogoStacked className="h-[3.25rem] w-auto lg:h-16" />
         </Link>
 
         <nav aria-label="Hauptnavigation" className="hidden lg:block">

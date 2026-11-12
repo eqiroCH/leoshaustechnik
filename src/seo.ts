@@ -4,7 +4,7 @@ import { company } from './data/site'
 export type PageMeta = { title: string; description: string; noindex?: boolean }
 
 const DEFAULT_DESCRIPTION =
-  "Leo's Haustechnik GmbH aus Buchrain LU montiert Heiz- und Kühldeckensegel und baut die Feinverteilung für Heizung und Kälte – präzise und termintreu."
+  "Heiz- & Kühldeckensegel, Gipskühldecken und Feinverteilung aus Buchrain LU – montiert für Spitäler, Hochschulen, Büros und Wohnbauten in der Deutschschweiz."
 
 /** Meta-Daten pro Route – wird im Browser (useSeo) und beim Prerendern (scripts/prerender.mjs) verwendet. */
 export const pages: Record<string, PageMeta> = {

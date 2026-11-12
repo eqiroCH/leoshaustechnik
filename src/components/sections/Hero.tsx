@@ -5,7 +5,7 @@ import VideoCard from '../VideoCard'
 import { company } from '../../data/site'
 
 const specs = [
-  { label: 'Spezialisiert auf', value: 'Deckensegel' },
+  { label: 'Spezialisiert auf', value: 'Heizung & Kühlung' },
   { label: 'Gegründet', value: String(company.founded) },
   { label: 'Firmensitz', value: `${company.city} ${company.canton}` },
 ]
@@ -107,8 +107,8 @@ export default function Hero() {
           </h1>
 
           <p className="mt-8 max-w-xl text-lg leading-relaxed text-steel-200 text-pretty sm:text-xl [animation:fade-up_1s_var(--ease-out-expo)_0.34s_both]">
-            Wir montieren Heiz- und Kühldeckensegel und bauen die Feinverteilung dazu: von der Steigzone bis zum
-            letzten Anschluss. Präzise, sauber und termintreu, für Büro, Labor und Gewerbe.
+            Wir montieren Heiz- und Kühldeckensegel sowie Gipskühldecken und bauen die Feinverteilung dazu: von der
+            Zentrale bis zum letzten Anschluss. Für Büro, Labor und Gewerbe ebenso wie für exklusive Eigentumswohnungen.
           </p>
 
           <div className="mt-10 flex flex-wrap gap-3 [animation:fade-up_1s_var(--ease-out-expo)_0.42s_both]">
@@ -116,9 +116,8 @@ export default function Hero() {
               Projekt anfragen
               <ArrowUpRight className="size-4" aria-hidden />
             </a>
-            <a href="#leistungen" className="btn btn-ghost max-sm:flex-1">
-              Leistungen
-              <span className="max-sm:hidden">ansehen</span>
+            <a href="#referenzen" className="btn btn-ghost max-sm:flex-1">
+              Referenzen
             </a>
           </div>
 

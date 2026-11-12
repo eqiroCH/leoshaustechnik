@@ -28,14 +28,16 @@ Telefon und E-Mail werden nur angezeigt, wenn sie dort gesetzt sind.
 ## Offene Punkte (vom Kunden bestätigen lassen)
 
 - [ ] **Telefonnummer** (aktuell `null` → wird nirgends angezeigt)
-- [ ] **E-Mail-Adresse** `info@leos-haustechnik.ch` existiert? (Domain hat Hostpoint-Mail, Adresse nicht verifiziert)
+- [x] E-Mail-Adresse `info@leos-haustechnik.ch` (steht in der Kunden-Vorlage)
 - [ ] **Partnerschaft Durrer Technik AG** darf auf der Website genannt werden?
 - [ ] Leistungsumfang „Dichtheitsprüfung & Übergabe“ (Druckprobe, Spülen, Füllen?) korrekt?
 - [ ] Schlauchtyp beim Segelanschluss (z. B. sauerstoffdiffusionsdicht) – dann im Text ergänzen
 - [ ] Argumente „effizient mit Wärmepumpe“ / „geringe Bauhöhe, auch Sanierung“ für ihre Projekte zutreffend?
-- [ ] Einsatzgebiet (Zentralschweiz? Zürich? ganze Deutschschweiz?)
+- [x] Einsatzgebiet: ganze Deutschschweiz (laut Kunden-Vorlage)
+- [ ] Gründungsjahr: Handelsregister sagt 2019, Kunden-Vorlage „seit 2020 selbstständig“ – Website zeigt 2019
+- [ ] Foto einer Gipskühldecke (aktuell Illustration) und Leistungsumfang dort bestätigen
+- [ ] Referenzen: Freigabe zur Namensnennung (PJZ, ETH Octavo, KSSG, HSG, The Circle …)
 - [ ] Teamfotos von Leonard Andreic & Leonardo Mistrafovic (aktuell Initialen)
-- [ ] Referenzprojekte mit Namen/Ort, sofern erlaubt
 - [ ] Nutzungsrechte an den Baustellenfotos & dem Video
 - [ ] Netlify: Formular-Benachrichtigung an die richtige E-Mail einrichten (Site settings → Forms → Notifications)
 - [ ] Domain `leos-haustechnik.ch` (Hostpoint) auf Netlify zeigen lassen – MX-Records für Mail **nicht** verändern

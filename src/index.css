@@ -102,7 +102,14 @@
   :root {
     --logo-cold: var(--color-ice-200);
     --logo-warm: var(--color-heat-200);
-    color-scheme: light;
+    /* Signalisiert «Dark Mode wird unterstützt» → Browser invertieren die Seite nicht automatisch.
+       Alle Flächen- und Textfarben sind explizit gesetzt, die Seite sieht in beiden Modi gleich aus. */
+    color-scheme: light dark;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --logo-cold: var(--color-ice-200);
+    }
   }
 
   html {
