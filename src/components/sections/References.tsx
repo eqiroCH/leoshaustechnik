@@ -13,7 +13,7 @@ export default function References() {
             <SectionHeading
               eyebrow="Referenzen"
               title="Gebaut für Spitäler, Hochschulen, Banken und Büros."
-              intro="Unsere Heiz- und Kühldecken hängen in anspruchsvollen Bauten in der ganzen Deutschschweiz. Eine Auswahl:"
+              intro="Unsere Heiz- und Kühldecken hängen in anspruchsvollen Bauten in der ganzen Schweiz. Eine Auswahl:"
             />
 
             <Reveal delay={120} className="mt-10 grid grid-cols-3 gap-px overflow-hidden rounded-[22px] border border-ink-900/10 bg-ink-900/10">

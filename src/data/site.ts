@@ -43,10 +43,10 @@ export type Service = {
   kicker: string
   text: string
   points: string[]
-  /** Foto – oder eine Illustration, wenn (noch) kein Foto existiert */
-  image?: ImageName
-  visual?: 'gips'
+  image: ImageName
   alt: string
+  /** Kleines eingeblendetes Zweitbild, z. B. der fertige Zustand */
+  inset?: { image: ImageName; alt: string; label: string }
   tone: 'cold' | 'warm' | 'neutral'
 }
 
@@ -77,8 +77,13 @@ export const services: Service[] = [
       'Anschluss an die Feinverteilung',
       'Abstimmung mit dem Trockenbau', // TODO: Leistungsumfang bei Gipskühldecken vom Kunden bestätigen
     ],
-    visual: 'gips',
-    alt: 'Querschnitt einer Gipskühldecke: Register über der geschlossenen Gipsplatte',
+    image: 'gipskuehldecke-montage',
+    alt: 'Gipskühldecke in Montage: Kühlregister und Steinwolle zwischen den Metallprofilen, darunter ein Raum mit drei Fenstern',
+    inset: {
+      image: 'gipskuehldecke-fertig',
+      alt: 'Derselbe Raum fertig: geschlossene, weisse Gipsdecke mit Lichtbändern',
+      label: 'Fertig',
+    },
     tone: 'cold',
   },
   {
@@ -193,6 +198,30 @@ export const gallery: GalleryItem[] = [
     title: 'Steigzone',
     caption: 'Absperrungen und Regelventil mit Stellantrieb',
     span: 'tall',
+  },
+  {
+    image: 'gipskuehldecke-register',
+    title: 'Gipskühldecke',
+    caption: 'Kühlregister zwischen den Profilen, vor dem Schliessen',
+    span: 'tall',
+  },
+  {
+    image: 'gipskuehldecke-geruest',
+    title: 'Registermontage',
+    caption: 'Anschluss der Kühlregister vom Gerüst aus',
+    span: 'wide',
+  },
+  {
+    image: 'gipskuehldecke-fertig-2',
+    title: 'Geschlossen',
+    caption: 'Fertige Gipskühldecke mit Lichtbändern',
+    span: 'tall',
+  },
+  {
+    image: 'gipskuehldecke-grossraum',
+    title: 'Grossraum',
+    caption: 'Akustik-Gipskühldecke, fertig montiert',
+    span: 'wide',
   },
 ]
 

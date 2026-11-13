@@ -7,7 +7,7 @@ const items = [
   'Ventilgruppen',
   'Bodenheizung',
   'Holz-Hybridbau',
-  'Ganze Deutschschweiz',
+  'Ganze Schweiz',
 ]
 
 function Row({ hidden = false }: { hidden?: boolean }) {

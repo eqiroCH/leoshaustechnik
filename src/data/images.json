@@ -96,6 +96,69 @@
     ],
     "blur": "data:image/webp;base64,UklGRqIAAABXRUJQVlA4IJYAAADwBACdASoUABsAPu1wsFKppiSiqAgBMB2JQBajcBAkJXRtFgF3SjvI+25Hf0p1YgAA/lWNSZOp1hPsJbc/vYBKmpa44lsS/AStuveQpv8N1X+VV1B9VNcgLj6QtLt+1NPHPyKjlVsrJs1oeWFqgp3HSY28hzFljn5vMAIxzFoAMQ1Q4ZLMQi0OmipDCralJXs93qgoAAA="
   },
+  "gipskuehldecke-fertig-2": {
+    "width": 1200,
+    "height": 1600,
+    "widths": [
+      480,
+      800,
+      1200
+    ],
+    "blur": "data:image/webp;base64,UklGRp4AAABXRUJQVlA4IJIAAAAwBQCdASoUABsAPu1qrlCppaQiqAqpMB2JZQC7AC0VmBPRY9UZnc3rvdFPZNJKds4agAD518LuAHdMGRIskNmEK/UcUyvqUH+vAAKq0K1NluSwghyJ/x/ePz4c8cv2C00YM4XEXPUVDa/NaZREekwAZEw2bd74yOanv1QyfvrhkGaOMEeL6qkiLSEkbkZE0akAAA=="
+  },
+  "gipskuehldecke-fertig": {
+    "width": 1200,
+    "height": 1600,
+    "widths": [
+      480,
+      800,
+      1200
+    ],
+    "blur": "data:image/webp;base64,UklGRo4AAABXRUJQVlA4IIIAAABQBACdASoUABsAPu1qrVEppaQqqAqpUB2JZQDLaCz0HwdmsmygRBFtc8VgAPnXw3b3N8oaOjQKb22K0ApoMmLDSTvtoAD011Rv+7pF1Pt8770LaXhXFsen5i7pXETm3zkTqUCWAIDN0NevpEhfeGbGC3EyP5zOu0JUGsNasD37kWgA"
+  },
+  "gipskuehldecke-geruest": {
+    "width": 1600,
+    "height": 1200,
+    "widths": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "blur": "data:image/webp;base64,UklGRmwAAABXRUJQVlA4IGAAAABwAwCdASoUAA8APu1iqU2ppaOiMAgBMB2JZwAAR4uZez9mRAAA/uQzMFG8bafAVQdj2g0vsi5+XsLy7O5MMfCE/SN60AXATaTt8CGJ6z97nTnOtpGBx2AK44HKYygAAAA="
+  },
+  "gipskuehldecke-grossraum": {
+    "width": 1600,
+    "height": 1200,
+    "widths": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "blur": "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAACQAwCdASoUAA8APu1iqk4ppaQiMAgBMB2JZwDDNCB5nAAqSg8gAM4o5MW9tEgAa+1FWB5WLJUFmJKa/x9vrRrYoW6fGEkhjiupLBpRPqxhQAAA"
+  },
+  "gipskuehldecke-montage": {
+    "width": 1600,
+    "height": 1200,
+    "widths": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "blur": "data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAADwAwCdASoUAA8APu1iqU2ppaOiMAgBMB2JZwDLLCLCfOMcq7FloRoAAP6DlH5DBbwVITWsfF6XtCaOsL/jAx8gcLAO4jvrRieNAHjOCCVJFG5ijCNJ9tNMz9rDz3l75JVEkkROWkgAAA=="
+  },
+  "gipskuehldecke-register": {
+    "width": 1200,
+    "height": 1600,
+    "widths": [
+      480,
+      800,
+      1200
+    ],
+    "blur": "data:image/webp;base64,UklGRrYAAABXRUJQVlA4IKoAAADQBACdASoUABsAPu1mrE+ppaQiMBgIATAdiWUAABeASpyRus8W1SGzWns0Y533sAD+pfCywzK2lOtFNBT8LJzOKUQNDnoJaA4/muq/QBJQQb6aFZuR29vu0OfKJZax1MY293OvnuSm+FsQz/OTNVPALkkRnJJWsRtRC1co1yPuWQrDeuID9KbIRkw5O/44HNAlznJsWml0xZi136Xt9gGwWJvQagIsrWoAAA=="
+  },
   "werkhalle-deckensegel": {
     "width": 2000,
     "height": 1500,

@@ -33,9 +33,10 @@ Telefon und E-Mail werden nur angezeigt, wenn sie dort gesetzt sind.
 - [ ] Leistungsumfang „Dichtheitsprüfung & Übergabe“ (Druckprobe, Spülen, Füllen?) korrekt?
 - [ ] Schlauchtyp beim Segelanschluss (z. B. sauerstoffdiffusionsdicht) – dann im Text ergänzen
 - [ ] Argumente „effizient mit Wärmepumpe“ / „geringe Bauhöhe, auch Sanierung“ für ihre Projekte zutreffend?
-- [x] Einsatzgebiet: ganze Deutschschweiz (laut Kunden-Vorlage)
+- [x] Einsatzgebiet: ganze Schweiz (laut Kunde)
+- [x] Fotos Gipskühldecke (Bucherer-Fassade bewusst nicht verwendet)
 - [ ] Gründungsjahr: Handelsregister sagt 2019, Kunden-Vorlage „seit 2020 selbstständig“ – Website zeigt 2019
-- [ ] Foto einer Gipskühldecke (aktuell Illustration) und Leistungsumfang dort bestätigen
+- [ ] Leistungsumfang bei Gipskühldecken bestätigen
 - [ ] Referenzen: Freigabe zur Namensnennung (PJZ, ETH Octavo, KSSG, HSG, The Circle …)
 - [ ] Teamfotos von Leonard Andreic & Leonardo Mistrafovic (aktuell Initialen)
 - [ ] Nutzungsrechte an den Baustellenfotos & dem Video
