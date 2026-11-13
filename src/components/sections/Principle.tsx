@@ -7,7 +7,7 @@ type Mode = 'heat' | 'cool'
 
 const modes: Record<
   Mode,
-  { label: string; title: string; text: string; strong: string; soft: string; Icon: typeof Sun }
+  { label: string; title: string; text: string; strong: string; soft: string; vl: string; rl: string; Icon: typeof Sun }
 > = {
   heat: {
     label: 'Heizen',
@@ -15,6 +15,9 @@ const modes: Record<
     text: 'Warmes Wasser durchströmt das Segel. Das Segel gibt die Wärme grösstenteils als Strahlung ab. Menschen, Böden und Wände werden direkt erwärmt, ohne Luftzug und ohne aufgewirbelten Staub.',
     strong: '#f0766d',
     soft: '#f7b8b4',
+    // HLK-Konvention: Vorlauf rot, Rücklauf blau
+    vl: '#f0766d',
+    rl: '#4fb3ea',
     Icon: Sun,
   },
   cool: {
@@ -23,6 +26,9 @@ const modes: Record<
     text: 'Durch dasselbe Segel fliesst nun kühles Wasser. Das Segel nimmt die Wärme von Menschen, Geräten und Sonneneinstrahlung auf. Leise, zugfrei und ganz ohne Gebläse.',
     strong: '#6fc0ec',
     soft: '#cde9f7',
+    // Kühlen: Vorlauf kräftig blau, Rücklauf hellblau (Rücklauf bleibt in beiden Modi blau)
+    vl: '#2fa3e0',
+    rl: '#a6d8f2',
     Icon: Snowflake,
   },
 }
@@ -81,14 +87,14 @@ function RoomDiagram({ mode }: { mode: Mode }) {
         <path d="M0 76 H86 Q104 76 104 94 V104" stroke="rgba(255,255,255,0.12)" strokeWidth="6" />
         <path
           d="M0 58 H104 Q122 58 122 76 V104"
-          stroke={m.strong}
+          stroke={m.vl}
           strokeWidth="3"
           strokeDasharray="8 12"
           className="animate-flow transition-[stroke] duration-700"
         />
         <path
           d="M0 76 H86 Q104 76 104 94 V104"
-          stroke={m.soft}
+          stroke={m.rl}
           strokeWidth="3"
           strokeDasharray="8 12"
           className="animate-flow transition-[stroke] duration-700 [animation-direction:reverse]"
@@ -242,11 +248,11 @@ export default function Principle() {
               {/* Legende – auf kleinen Bildschirmen statt der (zu kleinen) Beschriftungen im Diagramm */}
               <ul className="mt-2 flex flex-wrap gap-x-5 gap-y-2 px-2 pb-2 text-xs text-steel-300 sm:hidden">
                 <li className="flex items-center gap-2">
-                  <span aria-hidden className="h-[3px] w-5 rounded-full transition-colors duration-700" style={{ background: modes[mode].strong }} />
+                  <span aria-hidden className="h-[3px] w-5 rounded-full transition-colors duration-700" style={{ background: modes[mode].vl }} />
                   Vorlauf
                 </li>
                 <li className="flex items-center gap-2">
-                  <span aria-hidden className="h-[3px] w-5 rounded-full transition-colors duration-700" style={{ background: modes[mode].soft }} />
+                  <span aria-hidden className="h-[3px] w-5 rounded-full transition-colors duration-700" style={{ background: modes[mode].rl }} />
                   Rücklauf
                 </li>
                 <li className="flex items-center gap-2">
