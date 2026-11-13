@@ -15,7 +15,7 @@ const modes: Record<
     text: 'Warmes Wasser durchströmt das Segel. Das Segel gibt die Wärme grösstenteils als Strahlung ab. Menschen, Böden und Wände werden direkt erwärmt, ohne Luftzug und ohne aufgewirbelten Staub.',
     strong: '#f0766d',
     soft: '#f7b8b4',
-    // HLK-Konvention: Vorlauf rot, Rücklauf blau
+    // Warmes Wasser rot, kaltes blau: Heizen = Vorlauf rot, Rücklauf blau
     vl: '#f0766d',
     rl: '#4fb3ea',
     Icon: Sun,
@@ -26,9 +26,9 @@ const modes: Record<
     text: 'Durch dasselbe Segel fliesst nun kühles Wasser. Das Segel nimmt die Wärme von Menschen, Geräten und Sonneneinstrahlung auf. Leise, zugfrei und ganz ohne Gebläse.',
     strong: '#6fc0ec',
     soft: '#cde9f7',
-    // Kühlen: Vorlauf kräftig blau, Rücklauf hellblau (Rücklauf bleibt in beiden Modi blau)
-    vl: '#2fa3e0',
-    rl: '#a6d8f2',
+    // Kühlen = Vorlauf blau (kalt), Rücklauf rot (erwärmt)
+    vl: '#4fb3ea',
+    rl: '#f0766d',
     Icon: Snowflake,
   },
 }
