@@ -1,19 +1,15 @@
-import { useCallback, useEffect, useRef, useState } from 'react'
-import { ChevronLeft, ChevronRight, Maximize2, X } from 'lucide-react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import { ChevronLeft, ChevronRight, Maximize2, Play, X } from 'lucide-react'
 import Picture from '../Picture'
 import Reveal from '../Reveal'
 import SectionHeading from '../SectionHeading'
-import VideoCard from '../VideoCard'
-import { gallery } from '../../data/site'
+import { gallery, galleryCategories, type GalleryCategory, type GalleryItem } from '../../data/site'
 
-const spanClass = {
-  tall: 'sm:row-span-2',
-  wide: 'sm:col-span-2',
-  big: 'sm:col-span-2 sm:row-span-2',
-} as const
+const INITIAL = 12
+type Filter = 'alle' | GalleryCategory
 
 /** Fortschrittsbalken für das mobile Wisch-Karussell */
-function useScrollProgress<T extends HTMLElement>() {
+function useScrollProgress<T extends HTMLElement>(deps: unknown[]) {
   const ref = useRef<T>(null)
   const [state, setState] = useState({ progress: 0, ratio: 1 })
   useEffect(() => {
@@ -35,14 +31,35 @@ function useScrollProgress<T extends HTMLElement>() {
       el.removeEventListener('scroll', update)
       window.removeEventListener('resize', update)
     }
-  }, [])
+  }, deps)
   return [ref, state] as const
 }
 
-function Lightbox({ index, onClose, onNav }: { index: number; onClose: () => void; onNav: (dir: 1 | -1) => void }) {
-  const item = gallery[index]
+function Lightbox({
+  items,
+  index,
+  onClose,
+  onNav,
+}: {
+  items: GalleryItem[]
+  index: number
+  onClose: () => void
+  onNav: (dir: 1 | -1) => void
+}) {
+  const item = items[index]
   const closeRef = useRef<HTMLButtonElement>(null)
   const dialogRef = useRef<HTMLDivElement>(null)
+  const videoRef = useRef<HTMLVideoElement>(null)
+
+  // Video starten – mit Ton, sonst (Autoplay-Sperre des Browsers) stumm
+  useEffect(() => {
+    const v = videoRef.current
+    if (!v) return
+    v.play().catch(() => {
+      v.muted = true
+      v.play().catch(() => {})
+    })
+  }, [item])
 
   useEffect(() => {
     const prev = document.activeElement as HTMLElement | null
@@ -51,9 +68,9 @@ function Lightbox({ index, onClose, onNav }: { index: number; onClose: () => voi
     const onKey = (e: KeyboardEvent) => {
       // Fokus im Dialog halten
       if (e.key === 'Tab' && dialogRef.current) {
-        const items = [...dialogRef.current.querySelectorAll<HTMLElement>('button')]
-        const first = items[0]
-        const last = items[items.length - 1]
+        const focusables = [...dialogRef.current.querySelectorAll<HTMLElement>('button, video[controls]')]
+        const first = focusables[0]
+        const last = focusables[focusables.length - 1]
         if (e.shiftKey && document.activeElement === first) {
           e.preventDefault()
           last.focus()
@@ -66,6 +83,8 @@ function Lightbox({ index, onClose, onNav }: { index: number; onClose: () => voi
         }
       }
       if (e.key === 'Escape') onClose()
+      // Pfeiltasten nicht abfangen, wenn das Video den Fokus hat (dort spulen sie)
+      if (document.activeElement?.tagName === 'VIDEO') return
       if (e.key === 'ArrowRight') onNav(1)
       if (e.key === 'ArrowLeft') onNav(-1)
     }
@@ -88,7 +107,7 @@ function Lightbox({ index, onClose, onNav }: { index: number; onClose: () => voi
     >
       <div className="flex items-center justify-between px-5 py-4 text-white sm:px-8">
         <p className="font-mono text-sm text-steel-400">
-          {String(index + 1).padStart(2, '0')} / {String(gallery.length).padStart(2, '0')}
+          {String(index + 1).padStart(2, '0')} / {String(items.length).padStart(2, '0')}
         </p>
         <button
           ref={closeRef}
@@ -101,21 +120,34 @@ function Lightbox({ index, onClose, onNav }: { index: number; onClose: () => voi
         </button>
       </div>
       <div className="relative flex min-h-0 flex-1 items-center justify-center px-4 sm:px-20" onClick={(e) => e.stopPropagation()}>
-        <Picture
-          key={item.image}
-          name={item.image}
-          alt={`${item.title}: ${item.caption}`}
-          sizes="100vw"
-          blur={false}
-          className="contents"
-          imgClassName="max-h-full max-w-full rounded-2xl object-contain [animation:fade-up_.5s_var(--ease-out-expo)_both]"
-        />
+        {item.video ? (
+          <video
+            ref={videoRef}
+            key={item.video.src}
+            src={item.video.src}
+            poster={`/images/${item.image}-800.jpg`}
+            controls
+            playsInline
+            preload="metadata"
+            className="max-h-full max-w-full rounded-2xl bg-black"
+          />
+        ) : (
+          <Picture
+            key={item.image}
+            name={item.image}
+            alt={`${item.title}: ${item.caption}`}
+            sizes="100vw"
+            blur={false}
+            className="contents"
+            imgClassName="max-h-full max-w-full rounded-2xl object-contain [animation:fade-up_.5s_var(--ease-out-expo)_both]"
+          />
+        )}
         {[-1, 1].map((dir) => (
           <button
             key={dir}
             type="button"
             onClick={() => onNav(dir as 1 | -1)}
-            aria-label={dir === -1 ? 'Vorheriges Bild' : 'Nächstes Bild'}
+            aria-label={dir === -1 ? 'Vorheriges Element' : 'Nächstes Element'}
             className={`absolute top-1/2 grid size-12 -translate-y-1/2 place-items-center rounded-full bg-white/10 text-white backdrop-blur hover:bg-white/20 ${
               dir === -1 ? 'left-3 sm:left-6' : 'right-3 sm:right-6'
             }`}
@@ -132,14 +164,73 @@ function Lightbox({ index, onClose, onNav }: { index: number; onClose: () => voi
   )
 }
 
+function Tile({ item, onOpen }: { item: GalleryItem; onOpen: () => void }) {
+  return (
+    <button
+      type="button"
+      onClick={onOpen}
+      className="group relative block h-full w-full overflow-hidden rounded-[20px] bg-ink-800 text-left sm:h-auto"
+      aria-label={item.video ? `Video abspielen: ${item.title}` : `${item.title} vergrössern`}
+    >
+      <Picture
+        name={item.image}
+        alt={`${item.title}: ${item.caption}`}
+        sizes="(min-width: 1024px) 25vw, (min-width: 768px) 33vw, (min-width: 640px) 50vw, 80vw"
+        imgClassName="h-full w-full object-cover transition-transform duration-[1.2s] ease-[var(--ease-out-expo)] group-hover:scale-105 sm:h-auto"
+      />
+      <span aria-hidden className="absolute inset-0 bg-gradient-to-t from-ink-950/95 via-ink-950/30 to-transparent" />
+      {item.video && (
+        <span aria-hidden className="absolute top-1/2 left-1/2 grid size-14 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-white/90 text-ink-950 shadow-xl transition-transform group-hover:scale-110">
+          <Play className="size-5 translate-x-0.5" />
+        </span>
+      )}
+      {item.video && (
+        <span className="eyebrow absolute top-3 left-3 rounded-full bg-ink-950/70 px-2.5 py-1 text-white backdrop-blur">
+          Video · {item.video.duration}
+        </span>
+      )}
+      <span className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-3 p-4 sm:p-5">
+        <span>
+          <span className="block font-semibold text-white">{item.title}</span>
+          <span className="mt-0.5 block text-sm text-steel-200">{item.caption}</span>
+        </span>
+        {!item.video && (
+          <span className="grid size-9 shrink-0 place-items-center rounded-full bg-white/15 text-white opacity-0 backdrop-blur transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100">
+            <Maximize2 className="size-4" aria-hidden />
+          </span>
+        )}
+      </span>
+    </button>
+  )
+}
+
 export default function Gallery() {
+  const [filter, setFilter] = useState<Filter>('alle')
+  const [showAll, setShowAll] = useState(false)
   const [open, setOpen] = useState<number | null>(null)
-  const [trackRef, scroll] = useScrollProgress<HTMLDivElement>()
+
+  const filtered = useMemo(() => (filter === 'alle' ? gallery : gallery.filter((g) => g.category === filter)), [filter])
+  const visible = showAll ? filtered : filtered.slice(0, INITIAL)
+  const [trackRef, scroll] = useScrollProgress<HTMLDivElement>([filter, showAll])
+
   const close = useCallback(() => setOpen(null), [])
   const nav = useCallback(
-    (dir: 1 | -1) => setOpen((i) => (i === null ? null : (i + dir + gallery.length) % gallery.length)),
-    [],
+    (dir: 1 | -1) => setOpen((i) => (i === null ? null : (i + dir + filtered.length) % filtered.length)),
+    [filtered.length],
   )
+
+  const choose = (f: Filter) => {
+    setFilter(f)
+    setShowAll(false)
+    trackRef.current?.scrollTo({ left: 0 })
+  }
+
+  const counts = useMemo(() => {
+    const c: Record<string, number> = { alle: gallery.length }
+    for (const g of gallery) c[g.category] = (c[g.category] ?? 0) + 1
+    return c
+  }, [])
+  const filters: { id: Filter; label: string }[] = [{ id: 'alle', label: 'Alle' }, ...galleryCategories]
 
   return (
     <section id="projekte" className="bg-ink-950 py-24 text-white sm:py-32">
@@ -150,7 +241,7 @@ export default function Gallery() {
             className="lg:col-span-8"
             eyebrow="Projekte"
             title="Einblicke von der Baustelle."
-            intro="Büros, Labore und Werkhallen: ein Auszug aus Projekten, bei denen wir Segel montiert und die Feinverteilung gebaut haben."
+            intro="Spitäler, Hochschulen, Büros und Wohnbauten: Fotos und Videos aus Projekten, bei denen wir Deckensegel, Gipskühldecken und die Feinverteilung montiert haben."
           />
           <Reveal delay={100} className="lg:col-span-4 lg:text-right">
             <p className="text-steel-400">
@@ -160,46 +251,42 @@ export default function Gallery() {
           </Reveal>
         </div>
 
+        {/* Filter */}
+        <div role="group" aria-label="Projekte filtern" className="-mx-5 mt-10 flex gap-2 overflow-x-auto px-5 pb-1 [scrollbar-width:none] sm:mx-0 sm:flex-wrap sm:px-0 lg:mt-14 [&::-webkit-scrollbar]:hidden">
+          {filters.map((f) => {
+            const active = filter === f.id
+            return (
+              <button
+                key={f.id}
+                type="button"
+                aria-pressed={active}
+                onClick={() => choose(f.id)}
+                className={`inline-flex shrink-0 items-center gap-2 rounded-full border px-4 py-2.5 text-sm font-semibold transition-colors ${
+                  active ? 'border-white bg-white text-ink-950' : 'border-white/15 text-steel-200 hover:border-white/40 hover:text-white'
+                }`}
+              >
+                {f.label}
+                <span className={`font-mono text-xs ${active ? 'text-ink-600' : 'text-steel-400'}`}>{counts[f.id]}</span>
+              </button>
+            )
+          })}
+        </div>
+
+        {/* Mobil: Wisch-Karussell · ab sm: Masonry in Originalformaten */}
         <div
           ref={trackRef}
-          className="-mx-5 mt-10 flex snap-x snap-mandatory scroll-px-5 gap-3 overflow-x-auto px-5 pb-1 [scrollbar-width:none] sm:mx-0 sm:mt-14 sm:grid sm:grid-flow-row-dense sm:auto-rows-[240px] sm:grid-cols-2 sm:gap-4 sm:overflow-visible sm:px-0 sm:pb-0 lg:mt-20 lg:auto-rows-[260px] lg:grid-cols-4 [&::-webkit-scrollbar]:hidden"
+          aria-live="polite"
+          className="-mx-5 mt-6 flex snap-x snap-mandatory scroll-px-5 gap-3 overflow-x-auto px-5 pb-1 [scrollbar-width:none] sm:mx-0 sm:block sm:columns-2 sm:gap-4 sm:overflow-visible sm:px-0 sm:pb-0 md:columns-3 lg:columns-4 [&::-webkit-scrollbar]:hidden"
         >
-          {gallery.map((g, i) => (
+          {visible.map((g, i) => (
             <Reveal
-              key={g.image}
-              delay={(i % 4) * 70}
-              className={`aspect-[3/4] w-[78%] shrink-0 snap-start sm:aspect-auto sm:w-auto ${g.span ? spanClass[g.span] : ''}`}
+              key={`${filter}-${g.image}`}
+              delay={(i % 4) * 60}
+              className="aspect-[3/4] w-[78%] shrink-0 snap-start sm:mb-4 sm:aspect-auto sm:w-auto sm:break-inside-avoid"
             >
-              <button
-                type="button"
-                onClick={() => setOpen(i)}
-                className="group relative block size-full overflow-hidden rounded-[22px] bg-ink-800 text-left"
-                aria-label={`${g.title} vergrössern`}
-              >
-                <Picture
-                  name={g.image}
-                  alt={`${g.title}: ${g.caption}`}
-                  sizes="(min-width: 640px) 50vw, 80vw"
-                  className="absolute inset-0"
-                  imgClassName="size-full object-cover transition-transform duration-[1.2s] ease-[var(--ease-out-expo)] group-hover:scale-105"
-                />
-                <span aria-hidden className="absolute inset-0 bg-gradient-to-t from-ink-950/95 via-ink-950/40 to-transparent" />
-                <span className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-3 p-5">
-                  <span>
-                    <span className="block font-semibold text-white">{g.title}</span>
-                    <span className="mt-0.5 block text-sm text-steel-200">{g.caption}</span>
-                  </span>
-                  <span className="grid size-9 shrink-0 place-items-center rounded-full bg-white/15 text-white opacity-0 backdrop-blur transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100">
-                    <Maximize2 className="size-4" aria-hidden />
-                  </span>
-                </span>
-              </button>
+              <Tile item={g} onOpen={() => setOpen(i)} />
             </Reveal>
           ))}
-          {/* Video als letzte Karte – nur auf dem Smartphone (ab Desktop läuft es im Hero) */}
-          <Reveal className="aspect-[3/4] w-[78%] shrink-0 snap-start sm:hidden">
-            <VideoCard className="size-full !rounded-[22px]" caption="Rundgang: Feinverteilung im Holz-Hybridbau." />
-          </Reveal>
         </div>
 
         {/* Fortschritt des Karussells (nur mobil) */}
@@ -207,14 +294,22 @@ export default function Gallery() {
           <div
             className="bg-thermal h-full rounded-full"
             style={{
-              width: `${Math.max(scroll.ratio * 100, 12)}%`,
-              transform: `translateX(${scroll.progress * (100 / Math.max(scroll.ratio, 0.12) - 100)}%)`,
+              width: `${Math.max(scroll.ratio * 100, 8)}%`,
+              transform: `translateX(${scroll.progress * (100 / Math.max(scroll.ratio, 0.08) - 100)}%)`,
             }}
           />
         </div>
+
+        {filtered.length > INITIAL && !showAll && (
+          <div className="mt-8 flex justify-center sm:mt-10">
+            <button type="button" onClick={() => setShowAll(true)} className="btn btn-ghost">
+              Alle {filtered.length} Bilder & Videos anzeigen
+            </button>
+          </div>
+        )}
       </div>
 
-      {open !== null && <Lightbox index={open} onClose={close} onNav={nav} />}
+      {open !== null && <Lightbox items={filtered} index={open} onClose={close} onNav={nav} />}
     </section>
   )
 }

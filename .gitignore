@@ -7,3 +7,6 @@ dist-server
 
 # Rohdateien (WhatsApp-Exporte) nie direkt veröffentlichen – Originale gehören nach assets-src/
 public/**/WhatsApp*
+
+# Upload-Archive des Netlify-Deploy-Tools
+deploy-*.zip

@@ -32,6 +32,16 @@
     ],
     "blur": "data:image/webp;base64,UklGRpYAAABXRUJQVlA4IIoAAACwBACdASoUABsAPu1qqFAppiOjKA1RMB2JZwDDcBEZhPgczAodysjP9+6I7VAAAP7OAJCSO0ennljHZZ3LE1A9mwZS5QnGmgSxre5ukwHcSrE6rpJegJ6TIkFMp4UA071cbHrhLriJx4Fqdv8AEBNCEzaJ1YkftgJXKo2540yw85WvoALCOmCgAAA="
   },
+  "buero-segel-parkett": {
+    "width": 1200,
+    "height": 1600,
+    "widths": [
+      480,
+      800,
+      1200
+    ],
+    "blur": "data:image/webp;base64,UklGRrQAAABXRUJQVlA4IKgAAADwBACdASoUABsAPu1wsFIppiSiqAgBMB2JZQDDNBEcxUn1XQGItJsYv221WHdi4AAA/upVoaYDZTQceLSv5X//tApbK77MtSfnG7IqmbjB7jpM8ubCuVLIlzkkefI1YoSQXSxv53vtIQwQlYW059yTjgNFutfgJ6MoOmGBYrGODZkAVknRMrTziEzLVslPPxF0ZuspwahoveITU+l4ThI4VUYD+7OQAAA="
+  },
   "buero-vorher": {
     "width": 1500,
     "height": 2000,
@@ -96,6 +106,137 @@
     ],
     "blur": "data:image/webp;base64,UklGRqIAAABXRUJQVlA4IJYAAADwBACdASoUABsAPu1wsFKppiSiqAgBMB2JQBajcBAkJXRtFgF3SjvI+25Hf0p1YgAA/lWNSZOp1hPsJbc/vYBKmpa44lsS/AStuveQpv8N1X+VV1B9VNcgLj6QtLt+1NPHPyKjlVsrJs1oeWFqgp3HSY28hzFljn5vMAIxzFoAMQ1Q4ZLMQi0OmipDCralJXs93qgoAAA="
   },
+  "gips-akustikplatten": {
+    "width": 1600,
+    "height": 1200,
+    "widths": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "blur": "data:image/webp;base64,UklGRn4AAABXRUJQVlA4IHIAAADwAwCdASoUAA8APu1iqU2ppaOiMAgBMB2JZQDE2BbrOYKSPG/Q5HAyAPkK3F6Lwnscds0KL5TuXTMhfmPHiwSJXuc6pPGUAV1O4HmHilU0eQEzJXBu8vQdCuMyHH5Xpya1hBYLNXGj7jTYwRIAD/OgAAA="
+  },
+  "gips-grossraum-2": {
+    "width": 1600,
+    "height": 1200,
+    "widths": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "blur": "data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAABwAwCdASoUAA8APu1iqU2ppaOiMAgBMB2JZQAATtD8yZa1igAA/jKSTIEtoFpGFIGixfvDZGtBvdlbD1RTE7d1sHN1ICfKT72RSQx3d1rCDCGknP+CHtOjgmf2ZCSHvor+Jelo1RdkvtiAAAA="
+  },
+  "gips-grossraum-montage": {
+    "width": 1600,
+    "height": 1200,
+    "widths": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "blur": "data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAADwAwCdASoUAA8APu1iqU2ppaOiMAgBMB2JZwC/OCKsLtUQIEcnNZGAAP1RraJg1nmmFsurCgbW+MYKc6hBrGvBRN4X+ZRH5rBO1aSLGYVtTa5MfvIEUK4in+YC2LUuvQRhL1Fx21u+WZm/4AAAAA=="
+  },
+  "gips-montage-2": {
+    "width": 1600,
+    "height": 1200,
+    "widths": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "blur": "data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAADQAwCdASoUAA8APu1iqU2ppaOiMAgBMB2JZQAASljJaHkh7vR5DgAA/tlh/QlN4InQtz9GUzocmlqk0OR2b58M+DakZgFQgXOZMDUICOAmMRQdyOp0y6zy8c1sHgAA"
+  },
+  "gips-raum-plan": {
+    "width": 1600,
+    "height": 1200,
+    "widths": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "blur": "data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAACQAwCdASoUAA8APu1iqU2ppaOiMAgBMB2JZQAAQn5crtbGq/egAP1HulddqUZRZEfwhiYKxaD93dn+JYlp/I4no9WVdopLXKa1edkyxcRK9nTk+vNf307fBS09H2EEU8E1iheggeAAAA=="
+  },
+  "gips-register-2": {
+    "width": 1200,
+    "height": 1600,
+    "widths": [
+      480,
+      800,
+      1200
+    ],
+    "blur": "data:image/webp;base64,UklGRpwAAABXRUJQVlA4IJAAAAAwBQCdASoUABsAPu1sqlEppaOiqAqpMB2JZwATwADnnQIjLE9CGQv5DvtqnHP2fm1+iAD+3dFc2zPOWKN+aD/okiAJr/vdc0pMNs7raMsDdZf3U6g7jOoZuVLgU0rVnsBnL6k0szkMr2e892qeJwRV5CcVslMeJgpR/3hvwuHa1iDWG5CYL7qCdMvSmceAAAA="
+  },
+  "gips-register-3": {
+    "width": 1600,
+    "height": 1200,
+    "widths": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "blur": "data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAAAQBACdASoUAA8APu1iqU2ppaQiMAgBMB2JYwC2yBxLMN4L5I0JVLUAAAD+O4EBfph62CcdLvZq8bX0KMwYrUjXQAkdQp1EJTs/h0gPwIwqs39rBejcs1pHXYNeVmuJmhD6fJe4UYZAK3lGuAA="
+  },
+  "gips-register-4": {
+    "width": 1600,
+    "height": 1200,
+    "widths": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "blur": "data:image/webp;base64,UklGRoQAAABXRUJQVlA4IHgAAAAQBACdASoUAA8APu1iqU2ppaOiMAgBMB2JZQCo9BFHfEb4damGN+IoAAD+cssGuL12Atw5jR60HRfjG0+yhDdprbBukOwgI5q/yXr7nF55hkHk6YTIkcaY41CqoKUaoudzB/IRm02vd94z99Ji7kvLKqa9bHykMAA="
+  },
+  "gips-register-5": {
+    "width": 1600,
+    "height": 1200,
+    "widths": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "blur": "data:image/webp;base64,UklGRnIAAABXRUJQVlA4IGYAAABwAwCdASoUAA8APu1iqU2ppaOiMAgBMB2JZwAANUZulxrnwAAA+otbqlLPoYqgZQslO1SF5U0wqBylOaqz+pIlphEtumsBm2G7Rn2Ib6/4Ol0lbbku33KXg/HyLuYdzGUXb+yMcAA="
+  },
+  "gips-register-6": {
+    "width": 1600,
+    "height": 1200,
+    "widths": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "blur": "data:image/webp;base64,UklGRnYAAABXRUJQVlA4IGoAAACwAwCdASoUAA8APu1iqU2ppaOiMAgBMB2JQBgbhFyYpzPNqLujAAD+cpeydBwr+D1KTzu0b+eUa2rhFI7KL2AW0+P/n5WkqhB+vNQLdZWIbmKeqfuuV3ujhSkj0oJA9KJ1xAYLcoSaEFwA"
+  },
+  "gips-register-7": {
+    "width": 1600,
+    "height": 1200,
+    "widths": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "blur": "data:image/webp;base64,UklGRnYAAABXRUJQVlA4IGoAAACQAwCdASoUAA8APu1iqU2ppaOiMAgBMB2JZwAAS75xGbwv5d78AP5xKfNHFX6C8cuDfBv6OfxlGoHxbgfG/Sag1k5C5vS/CV4hNP6/ixXPu0HB5euqX62tKWcGfWuwr7MWL5UC6yeJeAAA"
+  },
+  "gips-register-8": {
+    "width": 1600,
+    "height": 1200,
+    "widths": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "blur": "data:image/webp;base64,UklGRnIAAABXRUJQVlA4IGYAAADQAwCdASoUAA8APu1iqU2ppaQiMAgBMB2JZwDG9BxvviqyALfLkAAA8fr277SKlNkyLe1RZCFUyLy1m9fgfYuzrDcv91fk7hDrMucxVWHN6Syuo2xFC3iOzKfVblzZba+/Ww2AAAA="
+  },
   "gipskuehldecke-fertig-2": {
     "width": 1200,
     "height": 1600,
@@ -158,6 +299,88 @@
       1200
     ],
     "blur": "data:image/webp;base64,UklGRrYAAABXRUJQVlA4IKoAAADQBACdASoUABsAPu1mrE+ppaQiMBgIATAdiWUAABeASpyRus8W1SGzWns0Y533sAD+pfCywzK2lOtFNBT8LJzOKUQNDnoJaA4/muq/QBJQQb6aFZuR29vu0OfKJZax1MY293OvnuSm+FsQz/OTNVPALkkRnJJWsRtRC1co1yPuWQrDeuID9KbIRkw5O/44HNAlznJsWml0xZi136Xt9gGwWJvQagIsrWoAAA=="
+  },
+  "kuehldecke-bleche-1": {
+    "width": 1600,
+    "height": 1200,
+    "widths": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "blur": "data:image/webp;base64,UklGRoQAAABXRUJQVlA4IHgAAAAQBACdASoUAA8APu1iqU2ppaOiMAgBMB2JZQC/OB9EOw12Cvr9O104UAD+azY2wroNgQDk6OlisSQiI73TiBzGgHZBQbufqRDS/0Ia+8lhNOGaUQmaLadG4rAUQKXIVOngKARn4WxmMPcDpLyFLThu43G74crw4AA="
+  },
+  "kuehldecke-bleche-2": {
+    "width": 1600,
+    "height": 1200,
+    "widths": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "blur": "data:image/webp;base64,UklGRooAAABXRUJQVlA4IH4AAADQAwCdASoUAA8APu1iqU2ppaOiMAgBMB2JZQCo9CPeDpS/SGaXhGAA9jkLbl7wC68NAUuPz06e6BhGftBSr98tkCFBF6T5jOGEK5pCPl8LgLlw+xeHGjkx77idFEWbAB9e5+0siOvZaE3OCq0+Kbgfui3kb6xh6c7lUZZsAgA="
+  },
+  "kuehldecke-bleche-3": {
+    "width": 1600,
+    "height": 1200,
+    "widths": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "blur": "data:image/webp;base64,UklGRpAAAABXRUJQVlA4IIQAAADwAwCdASoUAA8APu1iqU2ppaOiMAgBMB2JZQCw7CGaI/NmJ29BlScAAP5Rx0oIzIjf0f0Dy+MS+aYFzCjENT53jyRulec8GQ3+tEurfQe6nVXBFuM5EKmcFE9gnPc5OiroewVPKAt8v7M9+BZN1xioynwdRWi8tcYqXgH9kOe05giJAAA="
+  },
+  "kuehldecke-bleche-4": {
+    "width": 1600,
+    "height": 1200,
+    "widths": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "blur": "data:image/webp;base64,UklGRpIAAABXRUJQVlA4IIYAAAAwBACdASoUAA8APu1iqU2ppaOiMAgBMB2JZQCo9CB/2mD/ySWm68qVTAAAoKtziov5HQ0RTx38JrRsfGKvcHiI0yye5Se2OEN9OZTylPR6kS782oSICWbruXseQFcALnZ8+pK2CLz5n1LhrOfAWfNtbLeu3/YqlzrCBNwnyWx5/9NXWNQAAA=="
+  },
+  "kuehldecke-bleche-5": {
+    "width": 1600,
+    "height": 1200,
+    "widths": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "blur": "data:image/webp;base64,UklGRogAAABXRUJQVlA4IHwAAADwAwCdASoUAA8APu1iqU2ppaOiMAgBMB2JZQCsMoABGbHp+r04rzkGAOrMMoLFTY969Km3DAITSjBEp/wlvjYV+INXERZdOxMORedHs83lOYv8AwRGdNiSjyVAusr7yx9A90ndyXxsE9Bfn3+8lI+XU2bbIOlSnZyLYAAA"
+  },
+  "video-gips-register": {
+    "width": 1024,
+    "height": 576,
+    "widths": [
+      480,
+      800,
+      1024
+    ],
+    "blur": "data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAABwAwCdASoUAAsAPu1iqU2ppaQiMAgBMB2JZQDG9Art67ytQCwA/Sfy3YpcbsJUueCycM4zYFMg8/Y9m0NeJOHJLQsXKSfAG/k5DXMvwSOXhMP0PGIQtnIzimX2AAAA"
+  },
+  "video-gips-rundgang": {
+    "width": 768,
+    "height": 576,
+    "widths": [
+      480,
+      768
+    ],
+    "blur": "data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAAAQBACdASoUAA8APu1iqU2ppaQiMAgBMB2JZQCdIP8CuKbwAntepcW4vADzlhP+lB/xQKCS18ZKh+YSq15VIwtkFN4UAC1GIjFkdSMvNVZIVRFDc7FataorE6fEAAAA"
+  },
+  "video-holzbau": {
+    "width": 478,
+    "height": 850,
+    "widths": [
+      478
+    ],
+    "blur": "data:image/webp;base64,UklGRtgAAABXRUJQVlA4IMwAAACwBQCdASoUACQAPu1ysVOppqSipWgBMB2JQBYhphDVd+WK/ReQ+St8yPUqz0pkho2O9Zfg5gAA/nGdVFAca2ljrtqrDqaJQgy7K1ue6nNy2YHl3Bx91upGf5hNcE9OxYc8n37rvInrVI/2a4KBVvN+TnC+JnAXN0u4iHh3+fZnWHvlwxq4pDWRxhGdziVXpNXgp6jlw0efoz9wZLe4mY+tqvZa7QZqkaQF5PpvqqxJ/2z7+D2Uzos8CzGBNFKmyxp9BklGLglSPOW5WAA="
   },
   "werkhalle-deckensegel": {
     "width": 2000,

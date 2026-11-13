@@ -143,86 +143,80 @@ export const references = [
   { name: 'Floating Garden', place: 'Zug' },
 ]
 
+export type GalleryCategory = 'segel' | 'gips' | 'leitung'
+
+export const galleryCategories: { id: GalleryCategory; label: string }[] = [
+  { id: 'segel', label: 'Deckensegel' },
+  { id: 'gips', label: 'Gipskühldecken' },
+  { id: 'leitung', label: 'Feinverteilung' },
+]
+
 export type GalleryItem = {
+  /** Bild bzw. Vorschaubild (bei Videos) */
   image: ImageName
   title: string
   caption: string
-  span?: 'tall' | 'wide' | 'big'
+  category: GalleryCategory
+  video?: { src: string; duration: string }
 }
 
+// Reihenfolge = Reihenfolge in «Alle» (die ersten 12 sind sofort sichtbar)
 export const gallery: GalleryItem[] = [
+  { image: 'werkhalle-deckensegel', title: 'Labor & Werkstatt', caption: 'Segelfelder zwischen durchgehenden Lichtbändern', category: 'segel' },
+  { image: 'gipskuehldecke-geruest', title: 'Registermontage', caption: 'Anschluss der Kühlregister vom Gerüst aus', category: 'gips' },
+  { image: 'feinverteilung-flexanschluss', title: 'Feinverteilung', caption: 'Pressfitting-T-Stücke, Kugelhähne, Flexschläuche', category: 'leitung' },
+  { image: 'gipskuehldecke-grossraum', title: 'Grossraum', caption: 'Akustik-Gipskühldecke, fertig montiert', category: 'gips' },
+  { image: 'werkhalle-untersicht', title: 'Werkhalle', caption: 'Segel, Kabeltrassen, Lüftung und Licht greifen ineinander', category: 'segel' },
   {
-    image: 'werkhalle-untersicht',
-    title: 'Werkhalle',
-    caption: 'Segel, Kabeltrassen, Lüftung und Licht greifen ineinander',
-    span: 'tall',
+    image: 'video-gips-rundgang',
+    title: 'Rundgang Gipskühldecke',
+    caption: 'Von den Registerpaketen bis zur fertigen Unterkonstruktion',
+    category: 'gips',
+    video: { src: '/media/gips-rundgang.mp4', duration: '2:22' },
   },
+  { image: 'gipskuehldecke-register', title: 'Vor dem Schliessen', caption: 'Kühlregister und Steinwolle zwischen den Profilen', category: 'gips' },
+  { image: 'deckensegel-grau', title: 'Lamellensegel', caption: 'Graue Segel unter Holzwolle-Akustikplatten', category: 'segel' },
+  { image: 'gips-akustikplatten', title: 'Schliessen', caption: 'Akustik-Gipsplatten werden über den Registern montiert', category: 'gips' },
+  { image: 'feinverteilung-steigzone', title: 'Steigzone', caption: 'Absperrungen und Regelventil mit Stellantrieb', category: 'leitung' },
+  { image: 'gipskuehldecke-fertig-2', title: 'Geschlossen', caption: 'Fertige Gipskühldecke mit Lichtbändern', category: 'gips' },
+  { image: 'buero-segel-parkett', title: 'Büro', caption: 'Lamellensegel über dem fertigen Parkett', category: 'segel' },
+  // ab hier hinter «Alle anzeigen»
   {
-    image: 'deckensegel-grau',
-    title: 'Lamellensegel',
-    caption: 'Graue Segel unter Holzwolle-Akustikplatten',
-    span: 'wide',
+    image: 'video-holzbau',
+    title: 'Rundgang Holzbau',
+    caption: 'Feinverteilung im Holz-Hybridbau, von der Steigzone bis an die Decke',
+    category: 'leitung',
+    video: { src: '/media/rundgang-holzbau.mp4', duration: '0:19' },
   },
+  { image: 'kuehldecke-bleche-2', title: 'Kühldecke im Ausbau', caption: 'Grossflächige Deckenfelder vor dem Verkleiden', category: 'gips' },
+  { image: 'deckensegel-anschluss', title: 'Segelstoss', caption: 'Flexible Verbindung zwischen zwei Segeln', category: 'segel' },
+  { image: 'gips-register-6', title: 'Registerfelder', caption: 'Symmetrisch verlegte Register bis zur Fassade', category: 'gips' },
   {
-    image: 'deckensegel-anschluss',
-    title: 'Segelstoss',
-    caption: 'Flexible Verbindung zwischen zwei Segeln',
-    span: 'tall',
+    image: 'video-gips-register',
+    title: 'Register im Überblick',
+    caption: 'Kameraschwenk über die montierten Kühlregister',
+    category: 'gips',
+    video: { src: '/media/gips-register.mp4', duration: '0:29' },
   },
-  {
-    image: 'werkhalle-deckensegel',
-    title: 'Labor & Werkstatt',
-    caption: 'Segelfelder zwischen durchgehenden Lichtbändern',
-    span: 'wide',
-  },
-  {
-    image: 'deckensegel-grau-geruest',
-    title: 'Montage',
-    caption: 'Segelmontage vom Gerüst aus',
-    span: 'tall',
-  },
-  {
-    image: 'feinverteilung-flexanschluss',
-    title: 'Feinverteilung',
-    caption: 'Pressfitting-T-Stücke, Kugelhähne, Flexschläuche',
-    span: 'tall',
-  },
-  {
-    image: 'buero-montage',
-    title: 'Vor der Segelmontage',
-    caption: 'Abhängungen und Leuchten sind gesetzt',
-    span: 'tall',
-  },
-  {
-    image: 'feinverteilung-steigzone',
-    title: 'Steigzone',
-    caption: 'Absperrungen und Regelventil mit Stellantrieb',
-    span: 'tall',
-  },
-  {
-    image: 'gipskuehldecke-register',
-    title: 'Gipskühldecke',
-    caption: 'Kühlregister zwischen den Profilen, vor dem Schliessen',
-    span: 'tall',
-  },
-  {
-    image: 'gipskuehldecke-geruest',
-    title: 'Registermontage',
-    caption: 'Anschluss der Kühlregister vom Gerüst aus',
-    span: 'wide',
-  },
-  {
-    image: 'gipskuehldecke-fertig-2',
-    title: 'Geschlossen',
-    caption: 'Fertige Gipskühldecke mit Lichtbändern',
-    span: 'tall',
-  },
-  {
-    image: 'gipskuehldecke-grossraum',
-    title: 'Grossraum',
-    caption: 'Akustik-Gipskühldecke, fertig montiert',
-    span: 'wide',
-  },
+  { image: 'deckensegel-grau-geruest', title: 'Montage', caption: 'Segelmontage vom Gerüst aus', category: 'segel' },
+  { image: 'gips-montage-2', title: 'Anschliessen', caption: 'Monteur beim Anschliessen der Register', category: 'gips' },
+  { image: 'kuehldecke-bleche-1', title: 'Wärmeleitflächen', caption: 'Metallflächen zwischen den Tragprofilen', category: 'gips' },
+  { image: 'buero-montage', title: 'Vor der Segelmontage', caption: 'Abhängungen und Leuchten sind gesetzt', category: 'segel' },
+  { image: 'gips-grossraum-montage', title: 'Grossraum in Montage', caption: 'Register über die ganze Raumlänge', category: 'gips' },
+  { image: 'buero-deckensegel', title: 'Grossraumbüro', caption: 'Reihen weisser Heiz- und Kühldeckensegel', category: 'segel' },
+  { image: 'gips-register-2', title: 'Registerreihen', caption: 'Registerfelder Richtung Fensterfront', category: 'gips' },
+  { image: 'kuehldecke-bleche-3', title: 'Deckenfelder', caption: 'Metallflächen kurz vor dem Schliessen', category: 'gips' },
+  { image: 'gips-register-3', title: 'Anschlussleitungen', caption: 'Zuleitungen zu den einzelnen Registern', category: 'gips' },
+  { image: 'gipskuehldecke-montage', title: 'Offen', caption: 'Register und Unterkonstruktion vor dem Verkleiden', category: 'gips' },
+  { image: 'gipskuehldecke-fertig', title: 'Fertig', caption: 'Derselbe Raum mit geschlossener Gipsdecke', category: 'gips' },
+  { image: 'gips-register-4', title: 'Registerfelder', caption: 'Register zwischen Profilen und Dämmung', category: 'gips' },
+  { image: 'kuehldecke-bleche-4', title: 'Kühldecke im Ausbau', caption: 'Deckenfelder mit offenen Anschlussbereichen', category: 'gips' },
+  { image: 'gips-register-5', title: 'Unterkonstruktion', caption: 'Register in der Metallunterkonstruktion', category: 'gips' },
+  { image: 'gips-raum-plan', title: 'Nach Verlegeplan', caption: 'Montage nach Plan, Raum für Raum', category: 'gips' },
+  { image: 'gips-register-7', title: 'Vorbereitete Anschlüsse', caption: 'Register mit Anschlussschläuchen', category: 'gips' },
+  { image: 'kuehldecke-bleche-5', title: 'Randabschluss', caption: 'Kühldecke am Übergang zur Wand', category: 'gips' },
+  { image: 'gips-register-8', title: 'Registerfelder', caption: 'Felder zwischen den Tragprofilen', category: 'gips' },
+  { image: 'gips-grossraum-2', title: 'Grossraum', caption: 'Register über die ganze Länge des Raums', category: 'gips' },
 ]
 
 export const process = [
