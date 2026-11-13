@@ -30,8 +30,8 @@ export const phoneHref = company.phone ? `tel:${company.phone.replace(/[^+\d]/g,
 export const nav = [
   { id: 'leistungen', label: 'Leistungen' },
   { id: 'prinzip', label: 'Prinzip' },
-  { id: 'referenzen', label: 'Referenzen' },
   { id: 'projekte', label: 'Projekte' },
+  { id: 'referenzen', label: 'Referenzen' },
   { id: 'ablauf', label: 'Ablauf' },
   { id: 'ueber-uns', label: 'Über uns' },
 ] as const
