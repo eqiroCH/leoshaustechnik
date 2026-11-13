@@ -4,3 +4,6 @@ dist-server
 .DS_Store
 *.local
 .netlify
+
+# Rohdateien (WhatsApp-Exporte) nie direkt veröffentlichen – Originale gehören nach assets-src/
+public/**/WhatsApp*
