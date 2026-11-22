@@ -45,8 +45,12 @@ export type Service = {
   points: string[]
   image: ImageName
   alt: string
-  /** Kleines eingeblendetes Zweitbild, z. B. der fertige Zustand */
-  inset?: { image: ImageName; alt: string; label: string }
+  /** Vorher/Nachher-Vergleich statt Einzelbild (object-position richtet die Fotos aufeinander aus) */
+  compare?: {
+    before: { image: ImageName; alt: string; position?: string }
+    after: { image: ImageName; alt: string; position?: string }
+    labels: [string, string]
+  }
   tone: 'cold' | 'warm' | 'neutral'
 }
 
@@ -79,10 +83,19 @@ export const services: Service[] = [
     ],
     image: 'gipskuehldecke-montage',
     alt: 'Gipskühldecke in Montage: Kühlregister und Steinwolle zwischen den Metallprofilen, darunter ein Raum mit drei Fenstern',
-    inset: {
-      image: 'gipskuehldecke-fertig',
-      alt: 'Derselbe Raum fertig: geschlossene, weisse Gipsdecke mit Lichtbändern',
-      label: 'Fertig',
+    // Fotos aus leicht anderem Winkel: Bildausschnitte so gewählt, dass die drei Fenster übereinanderliegen
+    compare: {
+      before: {
+        image: 'gipskuehldecke-montage',
+        alt: 'Vorher: Kühlregister und Steinwolle zwischen den Metallprofilen, Decke noch offen',
+        position: '92% 50%',
+      },
+      after: {
+        image: 'gipskuehldecke-fertig',
+        alt: 'Nachher: derselbe Raum mit geschlossener, weisser Gipsdecke und Lichtbändern',
+        position: '50% 83%',
+      },
+      labels: ['Offen', 'Fertig'],
     },
     tone: 'cold',
   },
@@ -181,13 +194,6 @@ export const gallery: GalleryItem[] = [
   { image: 'gipskuehldecke-fertig-2', title: 'Geschlossen', caption: 'Fertige Gipskühldecke mit Lichtbändern', category: 'gips' },
   { image: 'buero-segel-parkett', title: 'Büro', caption: 'Lamellensegel über dem fertigen Parkett', category: 'segel' },
   // ab hier hinter «Alle anzeigen»
-  {
-    image: 'video-holzbau',
-    title: 'Rundgang Holzbau',
-    caption: 'Feinverteilung im Holz-Hybridbau, von der Steigzone bis an die Decke',
-    category: 'leitung',
-    video: { src: '/media/rundgang-holzbau.mp4', duration: '0:19' },
-  },
   { image: 'kuehldecke-bleche-2', title: 'Kühldecke im Ausbau', caption: 'Grossflächige Deckenfelder vor dem Verkleiden', category: 'gips' },
   { image: 'deckensegel-anschluss', title: 'Segelstoss', caption: 'Flexible Verbindung zwischen zwei Segeln', category: 'segel' },
   { image: 'gips-register-6', title: 'Registerfelder', caption: 'Symmetrisch verlegte Register bis zur Fassade', category: 'gips' },
