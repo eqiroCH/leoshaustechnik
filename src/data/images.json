@@ -53,6 +53,17 @@
     ],
     "blur": "data:image/webp;base64,UklGRoQAAABXRUJQVlA4IHgAAACQBACdASoUABsAPu1qq1EppaOnKAqpMB2JZwAALnP9oPHAnY2NwDAoFO00oGAA/h/f18J74WP7J2AyowWyim5O1hlbweFxmSfHt8zSxr1UNM3UEtAnE+dYckTry4659zm0Yb3vDYXKG8Hgmsl2KlKNarPYcb+EAAA="
   },
+  "deckenelemente-laser": {
+    "width": 2000,
+    "height": 1500,
+    "widths": [
+      480,
+      800,
+      1200,
+      1800
+    ],
+    "blur": "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAABwAwCdASoUAA8APu1kqU2ppaQiMAgBMB2JaQAAQy3GjsJl5L4AzUECF8Aj+Oh03EdqlVehQuB2CYevunx9ZBwueVOpPAjyLxOCirfAdwgOwgcLnFhhhAAA"
+  },
   "deckensegel-anschluss": {
     "width": 1080,
     "height": 1920,
@@ -300,6 +311,17 @@
     ],
     "blur": "data:image/webp;base64,UklGRrYAAABXRUJQVlA4IKoAAADQBACdASoUABsAPu1mrE+ppaQiMBgIATAdiWUAABeASpyRus8W1SGzWns0Y533sAD+pfCywzK2lOtFNBT8LJzOKUQNDnoJaA4/muq/QBJQQb6aFZuR29vu0OfKJZax1MY293OvnuSm+FsQz/OTNVPALkkRnJJWsRtRC1co1yPuWQrDeuID9KbIRkw5O/44HNAlznJsWml0xZi136Xt9gGwWJvQagIsrWoAAA=="
   },
+  "halle-lamellensegel": {
+    "width": 2000,
+    "height": 1500,
+    "widths": [
+      480,
+      800,
+      1200,
+      1800
+    ],
+    "blur": "data:image/webp;base64,UklGRmwAAABXRUJQVlA4IGAAAACwAwCdASoUAA8APu1iqU2ppaOiMAgBMB2JZQCw7BYHHs4rCV/2gADmNWuVhyN99z85qJnRwyxmQPmAXY5H6HBXONRfNAPRnkQKOOG4BYOS8nbA6DEJ6PXeuRs8bTY0AAA="
+  },
   "kuehldecke-bleche-1": {
     "width": 1600,
     "height": 1200,
@@ -355,6 +377,61 @@
     ],
     "blur": "data:image/webp;base64,UklGRogAAABXRUJQVlA4IHwAAADwAwCdASoUAA8APu1iqU2ppaOiMAgBMB2JZQCsMoABGbHp+r04rzkGAOrMMoLFTY969Km3DAITSjBEp/wlvjYV+INXERZdOxMORedHs83lOYv8AwRGdNiSjyVAusr7yx9A90ndyXxsE9Bfn3+8lI+XU2bbIOlSnZyLYAAA"
   },
+  "kuehldecke-holzrand-1": {
+    "width": 2000,
+    "height": 1500,
+    "widths": [
+      480,
+      800,
+      1200,
+      1800
+    ],
+    "blur": "data:image/webp;base64,UklGRoYAAABXRUJQVlA4IHoAAAAQBACdASoUAA8APu1iqU2ppaOiMAgBMB2JQBOmRuAVu9HFypLsqka33AD+RZy0zyhKoEzksx543xqWHcR6aUwLwIDeW8L4LwidHyScHPSJTmydoxbxjGqGcq+ZwfAFuYbAGO73dvvxT6LK48XqNOO44BEocDEt5GsAAA=="
+  },
+  "kuehldecke-holzrand-2": {
+    "width": 2000,
+    "height": 1500,
+    "widths": [
+      480,
+      800,
+      1200,
+      1800
+    ],
+    "blur": "data:image/webp;base64,UklGRo4AAABXRUJQVlA4IIIAAAAwBACdASoUAA8APu1iqU2ppaOiMAgBMB2JYgCdEf/gNuiYNe51ULFYQBgA+p7HS+gmy8V6DNfHWTYvz8LXl22uhG2RwOrKQu29tRmLlnc37TysHYnNd21/D1LeUWoR6zDHo3tmJSmzO0BL8t+6kxLiz0iXgaReSkQG9AUhIAkQEgAA"
+  },
+  "montage-hebebuehne": {
+    "width": 1500,
+    "height": 2000,
+    "widths": [
+      480,
+      800,
+      1200,
+      1500
+    ],
+    "blur": "data:image/webp;base64,UklGRqgAAABXRUJQVlA4IJwAAABQBQCdASoUABsAPu1eqk4ppKQiMBgMATAdiWMAxn3cAW1vSikFc9HRYeP/1qEVFna6DmAA9x6sqikvL9jgK9Y+26RwqlPR2TbYrhAfoNV8dI/afe6MuJ8nTulptNMldmT26d1GEZaVc4+dlbIN0wDMByJjTPRIOW/gKIwUOw4L9apQsHZybIKrcWoKaisIQgZn2rhmad1qcFTgAAA="
+  },
+  "verteiler-messing": {
+    "width": 2000,
+    "height": 1500,
+    "widths": [
+      480,
+      800,
+      1200,
+      1800
+    ],
+    "blur": "data:image/webp;base64,UklGRoQAAABXRUJQVlA4IHgAAAAQBACdASoUAA8APu1iqU2ppaOiMAgBMB2JQBOmUABT3XryzeSl0qucAAD9Oqxz9OYobz1VWFB1D0UAEbpstlXOYF64Uxc0EIPWuDaVt5w81IHEdhGJO1dKlCoO4i3Y7+r4yO1ugwU2Mi787ONZARafQ7+wA2gKIAA="
+  },
+  "verteilleitung-abgaenge": {
+    "width": 2000,
+    "height": 1500,
+    "widths": [
+      480,
+      800,
+      1200,
+      1800
+    ],
+    "blur": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAABQAwCdASoUAA8APu1iqU2ppaOiMAgBMB2JaQAAPn4LrP/dAADZyA14XwYHnMKmmzoodrhf8JPSKSJz+JhuP6W3/X+ntd/U01TPg2xahN11W0JAAAA="
+  },
   "video-gips-register": {
     "width": 1024,
     "height": 576,
@@ -373,6 +450,28 @@
       768
     ],
     "blur": "data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAAAQBACdASoUAA8APu1iqU2ppaQiMAgBMB2JZQCdIP8CuKbwAntepcW4vADzlhP+lB/xQKCS18ZKh+YSq15VIwtkFN4UAC1GIjFkdSMvNVZIVRFDc7FataorE6fEAAAA"
+  },
+  "waermebild-kontrolle-1": {
+    "width": 2000,
+    "height": 1500,
+    "widths": [
+      480,
+      800,
+      1200,
+      1800
+    ],
+    "blur": "data:image/webp;base64,UklGRoIAAABXRUJQVlA4IHYAAACQAwCdASoUAA8APu1iqU2ppaOiMAgBMB2JZQDA3BQGVliVlAoAAPeLjzIWfSBgJcsbRxZVLz90E+qRtWFkakON84OIgo8DKyZFt2aZoF1/m2Ox62OmvOi8Js7lBWzmPYEO2O9Tce/+4yuYcuaBp3sWpnOuJAAA"
+  },
+  "waermebild-kontrolle-2": {
+    "width": 2000,
+    "height": 1500,
+    "widths": [
+      480,
+      800,
+      1200,
+      1800
+    ],
+    "blur": "data:image/webp;base64,UklGRnAAAABXRUJQVlA4IGQAAABwAwCdASoUAA8APu1iqU2ppaQiMAgBMB2JZwAAShb2gybikqAA/d9qCaIdpMEieEcXMnWveqR4468PYLFFJCg+ZKWCvrNSoXavk9H0tXtdshHA6PH3M22vbQdy2bvdQeq6wAAA"
   },
   "werkhalle-deckensegel": {
     "width": 2000,
