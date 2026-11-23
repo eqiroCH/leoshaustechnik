@@ -176,7 +176,6 @@ export type GalleryItem = {
 // Reihenfolge = Reihenfolge in «Alle» (die ersten 12 sind sofort sichtbar)
 export const gallery: GalleryItem[] = [
   { image: 'werkhalle-deckensegel', title: 'Labor & Werkstatt', caption: 'Segelfelder zwischen durchgehenden Lichtbändern', category: 'segel' },
-  { image: 'gipskuehldecke-geruest', title: 'Registermontage', caption: 'Anschluss der Kühlregister vom Gerüst aus', category: 'gips' },
   { image: 'feinverteilung-flexanschluss', title: 'Feinverteilung', caption: 'Pressfitting-T-Stücke, Kugelhähne, Flexschläuche', category: 'leitung' },
   { image: 'waermebild-kontrolle-1', title: 'Wärmebild-Kontrolle', caption: 'Die gekühlten Deckenelemente zeichnen sich im Wärmebild blau ab', category: 'segel' },
   { image: 'gipskuehldecke-grossraum', title: 'Grossraum', caption: 'Akustik-Gipskühldecke, fertig montiert', category: 'gips' },
