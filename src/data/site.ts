@@ -140,12 +140,14 @@ export const stats = [
   { value: '30+', label: 'Referenzprojekte' },
 ]
 
-/** Referenzen (Auswahl, Angaben des Kunden) */
-export const references = [
+export type Reference = { name: string; place: string }
+
+/** Referenzen – Quelle: Kundenportrait 2026 («Portrait_Leos-Haustechnik_2026.pdf») */
+export const references: Reference[] = [
+  { name: 'Pilatus, Neubau Schwarzhorn', place: 'Nidwalden' },
   { name: 'Polizei- und Justizzentrum', place: 'Zürich' },
   { name: 'ETH Octavo', place: 'Zürich' },
   { name: 'Kantonsspital St. Gallen', place: 'St. Gallen' },
-  { name: 'Pilatus, Neubau Schwarzhorn', place: 'Nidwalden' },
   { name: 'HSG', place: 'St. Gallen' },
   { name: 'Bucherer', place: 'Luzern' },
   { name: 'The Circle', place: 'Zürich Flughafen' },
@@ -154,6 +156,32 @@ export const references = [
   { name: 'Läderach Schoggierlebnis', place: 'Glarus' },
   { name: 'Berufsfachschule', place: 'Winterthur' },
   { name: 'Floating Garden', place: 'Zug' },
+]
+
+/** Weitere Referenzen (kompakte Liste unter den Karten) */
+export const moreReferences: Reference[] = [
+  { name: 'Thyssenkrupp Presta', place: 'Liechtenstein' },
+  { name: 'Mövenpick, Baloise Park', place: 'Basel' },
+  { name: 'Kantonsspital', place: 'Münsterlingen TG' },
+  { name: 'Lucerne Clinic', place: 'Luzern' },
+  { name: 'Rosenberg Klinik', place: 'Luzern' },
+  { name: 'BODLUV', place: 'Emmen' },
+  { name: 'Post', place: 'Dietikon' },
+  { name: 'JED Zühlke', place: 'Schlieren' },
+  { name: 'Regiobank', place: 'Solothurn' },
+  { name: 'Clientis Biene Bank', place: 'St. Gallen' },
+  { name: 'Raiffeisenbank', place: 'Männedorf' },
+  { name: 'Raiffeisenbank', place: 'Wallisellen' },
+  { name: 'Westoffice', place: 'St. Gallen' },
+  { name: 'M3 Gebäude', place: 'Rüschlikon' },
+  { name: 'Herose', place: 'Aarau' },
+  { name: 'Gleis 0', place: 'Aarau' },
+  { name: 'Galliker Transport', place: 'Altishofen' },
+  { name: 'Hagenholz Haus', place: 'Zürich' },
+  { name: 'MAB Baitella', place: 'Zürich' },
+  { name: 'Residenza Franziska', place: 'Luzern' },
+  { name: 'ORL Praxis', place: 'Frauenfeld' },
+  { name: 'Aregger', place: 'Buttisholz' },
 ]
 
 export type GalleryCategory = 'segel' | 'gips' | 'leitung'
@@ -175,10 +203,11 @@ export type GalleryItem = {
 
 // Reihenfolge = Reihenfolge in «Alle» (die ersten 12 sind sofort sichtbar)
 export const gallery: GalleryItem[] = [
-  { image: 'werkhalle-deckensegel', title: 'Labor & Werkstatt', caption: 'Segelfelder zwischen durchgehenden Lichtbändern', category: 'segel' },
+  { image: 'pilatus-schwarzhorn-halle', title: 'Pilatus, Neubau Schwarzhorn', caption: 'Lamellen-Deckensegel über die ganze Halle, entlang der Kranbahn', category: 'segel' },
   { image: 'feinverteilung-flexanschluss', title: 'Feinverteilung', caption: 'Pressfitting-T-Stücke, Kugelhähne, Flexschläuche', category: 'leitung' },
   { image: 'waermebild-kontrolle-1', title: 'Wärmebild-Kontrolle', caption: 'Die gekühlten Deckenelemente zeichnen sich im Wärmebild blau ab', category: 'segel' },
   { image: 'gipskuehldecke-grossraum', title: 'Grossraum', caption: 'Akustik-Gipskühldecke, fertig montiert', category: 'gips' },
+  { image: 'pilatus-schwarzhorn-fensterfront', title: 'Pilatus, Neubau Schwarzhorn', caption: 'Segelfelder in Reihen bis zur Fensterfront', category: 'segel' },
   { image: 'werkhalle-untersicht', title: 'Werkhalle', caption: 'Segel, Kabeltrassen, Lüftung und Licht greifen ineinander', category: 'segel' },
   {
     image: 'video-gips-rundgang',
@@ -189,7 +218,9 @@ export const gallery: GalleryItem[] = [
   },
   { image: 'verteiler-messing', title: 'Verteiler', caption: 'Verteiler mit Absperrungen für jeden einzelnen Kreis', category: 'leitung' },
   { image: 'gipskuehldecke-register', title: 'Vor dem Schliessen', caption: 'Kühlregister und Steinwolle zwischen den Profilen', category: 'gips' },
+  { image: 'pilatus-schwarzhorn-kran', title: 'Pilatus, Neubau Schwarzhorn', caption: 'Deckensegel zwischen den Lichtbändern, darunter die Kranbahn', category: 'segel' },
   { image: 'deckensegel-grau', title: 'Lamellensegel', caption: 'Graue Segel unter Holzwolle-Akustikplatten', category: 'segel' },
+  { image: 'werkhalle-deckensegel', title: 'Labor & Werkstatt', caption: 'Segelfelder zwischen durchgehenden Lichtbändern', category: 'segel' },
   { image: 'halle-lamellensegel', title: 'Halle', caption: 'Lamellensegel zwischen durchgehenden Lichtbändern', category: 'segel' },
   { image: 'gips-akustikplatten', title: 'Schliessen', caption: 'Akustik-Gipsplatten werden über den Registern montiert', category: 'gips' },
   { image: 'feinverteilung-steigzone', title: 'Steigzone', caption: 'Absperrungen und Regelventil mit Stellantrieb', category: 'leitung' },

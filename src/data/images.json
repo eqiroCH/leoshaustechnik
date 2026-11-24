@@ -399,6 +399,39 @@
     ],
     "blur": "data:image/webp;base64,UklGRqgAAABXRUJQVlA4IJwAAABQBQCdASoUABsAPu1eqk4ppKQiMBgMATAdiWMAxn3cAW1vSikFc9HRYeP/1qEVFna6DmAA9x6sqikvL9jgK9Y+26RwqlPR2TbYrhAfoNV8dI/afe6MuJ8nTulptNMldmT26d1GEZaVc4+dlbIN0wDMByJjTPRIOW/gKIwUOw4L9apQsHZybIKrcWoKaisIQgZn2rhmad1qcFTgAAA="
   },
+  "pilatus-schwarzhorn-fensterfront": {
+    "width": 1600,
+    "height": 1200,
+    "widths": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "blur": "data:image/webp;base64,UklGRoQAAABXRUJQVlA4IHgAAADQAwCdASoUAA8APu1iqU2ppaOiMAgBMB2JYwDE6f/gDvAE9FTLXEAA+d3gSKUVMc7mvqrJr3K5UA5tGBiW/r8QyOLPJGqc3LeF+toaqaF3Mn9gojI6J+m1qvEdforNbN2/lzoK12o8HyLqgNkUc94C8RBFxBhS+AA="
+  },
+  "pilatus-schwarzhorn-halle": {
+    "width": 1600,
+    "height": 1200,
+    "widths": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "blur": "data:image/webp;base64,UklGRn4AAABXRUJQVlA4IHIAAADwAwCdASoUAA8APu1iqU2ppaOiMAgBMB2JZQC/OBn7G2v9j2/ObXQAAPVeT1kB9SmrsO4Ce9K24sz1DgAiAUUxod5TmuxaJd+0XwSBLtCn8FtRUli2qkjmAb9612GNEiqpw1P/kbK/ULE/xvBmnhp2AAA="
+  },
+  "pilatus-schwarzhorn-kran": {
+    "width": 1600,
+    "height": 1200,
+    "widths": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "blur": "data:image/webp;base64,UklGRooAAABXRUJQVlA4IH4AAABwBACdASoUAA8APu1iqU2ppaOiMAgBMB2JYwDIuCXCzv80TqovRHT5QzlfgAD+h8f3eA00lH0wzNTHR/nsoFA/v05Wy7f3jYCMgXJ7Z2QOSQ34rWYDxPD0GpQGKMEkqT8bgCTTTQkBnUrZZywIKRaiZBoZoHPKKKnl9EoAAAA="
+  },
   "verteiler-messing": {
     "width": 2000,
     "height": 1500,
