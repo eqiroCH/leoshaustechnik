@@ -137,7 +137,7 @@ export const moreServices = [
 export const stats = [
   { value: '15+', label: 'Jahre Erfahrung in der HLK-Branche' },
   { value: '10+', label: 'Jahre spezialisiert auf Kühldecken' },
-  { value: '30+', label: 'Referenzprojekte' },
+  { value: '50+', label: 'Referenzprojekte' },
 ]
 
 export type Reference = { name: string; place: string }
